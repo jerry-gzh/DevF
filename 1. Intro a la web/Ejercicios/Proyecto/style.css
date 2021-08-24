@@ -1,0 +1,263 @@
+* {
+  /*Setear margenes generales para adaptar a cualquier navegador*/
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  align-self: center;
+}
+
+html {
+  font-size: 62.5%; /*Equivalencia para rem a 10px*/
+}
+
+.options {
+  width: 98%;
+  height: 5.6rem;
+  background-color: none;
+  display: flex; /*Se indica que hijos contienen flexbox*/
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.options li {
+  list-style: none;
+}
+
+.options li a {
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 1.7rem;
+  font-family: "Open Sans", sans-serif;
+  padding: 0.6rem;
+  margin: 0.6rem;
+  color: black;
+  border-radius: 3.5rem;
+  border: 1.5rem 1.5rem;
+  display: flex;
+}
+
+.options li a:hover {
+  background-color: grey;
+}
+
+.options img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 3rem;
+}
+
+.options img:hover {
+  background-color: grey;
+}
+
+.options .inicio {   /*Responsive*/
+  background-color: black;
+  color:white;
+  border-radius: 2.5rem;
+}
+
+.search {
+  margin: auto;
+  width: 75vw;
+  height: 4.2rem;
+  display: flex;
+  text-align: center;
+  border-radius: 1.5rem;
+  background-color: rgb(239, 239, 239);
+}
+
+.options .search:hover {
+  background-color: grey;
+}
+
+.search input {
+  width: 95%;
+  border: none;
+  font-size: 1.7rem;
+  font-family: "Open Sans", sans-serif;
+  color: none;
+  background-color: rgba(248, 248, 248, 0);
+}
+
+.search input:focus {
+  outline: none;
+}
+
+.options .lupa{
+  display: none;
+}
+
+.avatar img {
+  width: 30rem;
+  height: 30rem;
+  border-radius: 2rem;
+}
+
+.item {
+  margin: 0;
+  display: grid;
+  grid-template-rows: 1fr auto; /* Explicar */
+  margin-bottom: 1rem;
+  break-inside: avoid; /* Explicar */
+}
+
+.item img {
+  grid-column: 1;
+  border-radius: 2.5rem;
+}
+
+.container img {
+  width: 23.6rem;
+  display: block;
+}
+
+.item img:hover{
+  filter: brightness(0.6);
+}
+
+.item {
+  color: black;
+  text-decoration: none;
+  text-transform: none;
+  padding: 1rem 0.8rem 0.8rem;
+  position: relative;
+  margin: 0;
+}
+
+.container {
+  column-count: 5;
+  column-gap: 10px;
+  width: 98%;
+  background-color:none;
+  margin: auto;
+}
+
+/*
+.btn-save,.btn-up,.btn-more{
+  display: none;
+}
+
+.item:hover .btn-save, .btn-up, .btn-more{
+  display: flex;
+}
+*/
+.btn-save,.btn-up,.btn-more{
+  display: none;
+}
+
+.item:hover .btn-save{
+  display: flex;
+  width: 9rem;
+  height: 5rem;
+  border-radius: 6rem;
+  background-color: rgb(230,0,35);
+  color: white;
+  border: none;
+  font-size: 18px;
+  font-family:  "Open Sans", sans-serif;
+  align-items: center;
+  justify-content:  center;/*Alinear contenido en horizontal*/
+  position: absolute;
+  right:  90px;
+  top: 20px;
+}
+
+.item:hover .btn-up, .item:hover .btn-more{ /*Propiedades de los botones*/
+  display: flex;
+  background-color: rgb(209, 206, 206);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 8rem;
+  color: black;
+  border: none;
+  font-size: 18px;
+  align-items: center;
+  justify-content:  center;
+  position: absolute;
+}
+
+.btn-up{ /*Posicion btn*/
+  right:  140px;
+  bottom: 20px;
+}
+
+.btn-more{
+  right:  90px;
+  bottom: 20px;
+}
+
+@media screen and (min-width: 1009px) and (max-width: 1262px) {
+  .container {
+    column-count: 4;
+    column-gap: 10px;
+    width: 98%;
+    background-color:none;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 761px) and (max-width: 1008px) {
+  .container {
+    column-count: 3;
+    column-gap: 10px;
+    width: 98%;
+    background-color:none;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 510px) and (max-width: 760px) { /*Cambios en estructura responsive*/
+  .container {
+    column-count: 2;
+    column-gap: 10px;
+    width: 98%;
+    background-color:none;
+    margin: auto;
+  }
+
+  .options .hoy{
+    display: none;
+  }
+
+  .options .inicio {   /*Responsive*/
+    background-color:none;
+    color:white;
+  }
+}
+
+@media screen and (min-width: 56px) and (max-width: 510px) {
+  .container {
+    column-count: 2;
+    column-gap: 10px;
+    width: 98%;
+    background-color: none;
+    margin: auto;
+  }
+
+  .container img {
+    width: 45vw;
+  }
+
+  .options .hoy{
+    display: none;
+  }
+
+  .options .inicio {   /*Responsive*/
+    background-color: white;
+    color: black;
+  }
+
+  .options .search{
+    display: none;
+  }
+
+  .options .lupa{
+    display: flex;
+  }
+
+  .options li a {
+    padding: 0.2rem;
+    margin: 0.2rem;
+}
+
+}

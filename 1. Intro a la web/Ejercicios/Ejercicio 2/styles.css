@@ -1,0 +1,47 @@
+main {
+    width: 90%;
+    margin: auto;
+}
+img {
+    width: 200px;
+    float: right;
+    clear: right;
+}
+section h2 {
+    float: left
+}
+.section-divs{
+    position: relative;
+}
+section{
+    clear:both 
+}
+.div{
+    width: 200px;
+    height: 200px;
+}
+#div1{
+    background-color: chartreuse;
+}
+#div2{
+    background-color: rgb(111, 0, 255);
+    position: relative;
+    top: 50px;
+    left: 100px;
+    z-index: -2; /* Envía el elemento hacía atrás */
+}
+#div3{
+    background-color: rgb(102, 117, 86);
+    position:absolute;
+    top: 200px;
+    
+}
+#div4{
+    background-color: chartreuse;
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+}
+#div4:hover{
+    background-color: salmon ;
+}

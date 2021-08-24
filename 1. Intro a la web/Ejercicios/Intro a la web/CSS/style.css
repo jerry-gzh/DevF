@@ -1,0 +1,24 @@
+body {
+  background-color: rgb(150, 150, 150);
+  font-family: "Comfortaa", cursive;
+  background-image: url("../Img/Bici.jpeg");
+  background-size: cover;
+}
+section {
+  background-color: rgb(155, 88, 88);
+}
+#Intro {
+  background-color: rgb(125, 231, 18, 0.5);
+}
+header {
+  background-color: rgba(0, 0, 0, 0.952);
+  height: 35px;
+  width: 75%;
+  position:fixed;
+}
+footer {
+  background-color: rgb(255, 127, 80, 0.25);
+}
+.a {
+  color: crimson;
+}

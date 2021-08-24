@@ -1,0 +1,66 @@
+.padre {
+  width: 50%;
+  height: 450px;
+  background-color: green;
+  display: flex; /*Se indica que hijos contienen flexbox*/
+  direction: row-reverse;
+}
+.lado-izquierdo {
+  width: 35%;
+  background-color: blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.lado-izquierdo-arriba {
+  height: 45%;
+  background-color: white;
+}
+
+.lado-izquierdo-abajo {
+  height: 45%;
+  background-color: white;
+  display: flex;
+  align-items: flex-end; /*Propiedad del hijo*/
+}
+
+.lado-izquierdo-rojo {
+  width: 90%;
+  height: 90%;
+  background-color: red;
+}
+
+
+.lado-derecho {
+  width: 65%;
+  background-color: blue;
+  display: flex;
+  flex-direction: column; /*row (por defecto), Se cambia el eje principal*/
+  justify-content: space-between; /*Formato eje principal*/
+  align-items: flex-end; /*Formato eje secundario*/
+}
+
+.lado-derecho-arriba {
+  height: 45%;
+  width: 90%;
+  background-color: white;
+  display: flex;
+  justify-content: flex-end; 
+  align-items: flex-start;
+}
+
+.lado-derecho-abajo {
+  height: 45%;
+  width: 90%;
+  background-color: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.lado-derecho-rojo {
+  width: 90%;
+  height: 90%;
+  background-color: red;
+}

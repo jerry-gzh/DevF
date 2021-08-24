@@ -1,0 +1,44 @@
+*{ /*Setear margenes generales para adaptar a cualquier navegador*/
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+}
+
+.container{
+    display: grid;
+    height: 100%;
+    grid-template: 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr 1fr ;
+    grid-gap: 10px;
+    order: 1; /*Respetará el orden del código fuente????? */
+}
+
+.item {
+    background-color: pink;
+}
+
+.c{
+    grid-column: 4;
+}
+
+.d{
+    grid-column:1 ;
+    grid-row: 2;
+}
+
+.e{
+    grid-column:2;
+    grid-row: 2;
+}
+
+.f{
+    grid-column:3 ;
+    grid-row: 2;
+}
+
+g.{
+    order: 0;
+}
