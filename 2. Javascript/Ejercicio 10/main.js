@@ -36,7 +36,7 @@ console.log(venta_Pedro);
 // Saber cuantos perfumes se vendieron de cada uno 
 // Saber el monto total vendido
 
-function ventas ( flag, vendedor, ventas){  
+function ventas ( flag, vendedor, ventas){
     console.log(`Datos de venta de ${vendedor}`)
     let total = 0; 
     let cuenta = 0;
