@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="alert alert-dismissible" role="alert" id="liveAlert">
+    </div>
+    <main class="container mt-3">
+        <div class="row justify-content-center">
+            <class class="col-12 col-md-4 " id="sectionLogin"><!-- Sección login -->
+                <form action="">
+                    <div class="mb-3">
+                        <label for="txt-user" class="form-label">Usuario:</label>
+                        <input type="email" class="form-control" name="txt-user" id="txt-user">
+                    </div>
+                    <div class="mb-3">
+                        <label for="txt-pass" class="form-label">Contraseña:</label>
+                        <input type="password" class="form-control" name="txt-pass" id="txt-pass">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" name="rb-sesion" id="rb-sesion">
+                    </div>
+                    <button type="button" class="btn btn-primary" id="btn-login">Login</button>
+                    <button type="button" class="btn btn-danger">Limpiar</button>
+                </form>
+            </class>
+            <class class="col-12 col-md-4 " id="sectionMain">
+                <p id ="scn-Balance" ></p>
+                <button type="button" class="btn btn-secondary" id="btn-balance">Consultar saldo </button>
+                <button type="button" class="btn btn-primary" id="btn-deposit">Depositar</button>
+                <button type="button" class="btn btn-primary" id="btn-withdraw">Retirar</button>
+            </class>
+            <class class="mb-3" id="sectionWithdraw">
+                <label for="txt-deposit" class="form-label"> Ingrese el monto a depositar:</label>
+                <input type="number" class="form-control" name="txt-deposit" id="txt-deposit">
+                <button type="button" class="btn btn-primary" id="btn-confirm-withdraw">Confirmar deposito</button>
+            </class>
+        </div>
+    </main>
+    <script src="main.js"></script>
+</body>
+
+</html>
