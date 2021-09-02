@@ -1,6 +1,7 @@
 let tmpUser;
 
-sectionMain.hidden = true;
+sectionMain.hidden     = true;
+sectionDeposit.hidden  = true;
 sectionWithdraw.hidden = true;
 
 var usuarios = [
@@ -51,21 +52,42 @@ function login( correo, password )
         alert.textContent = "Upps!! Revisa usuario y contraseña!!"
         tmpUser = "Error";
     } 
-    setTimeout(function(){cleanMessage()}, 3000);// Ejecuta la instrucción en determinado tiempo 
-    console.log(tmpUser);
+    setTimeout(function(){cleanMessage()}, 3000);// Ejecuta la función en determinado tiempo 
+    //console.log(tmpUser);
     return (tmpUser);
 }
 
 function showBalance(userData){
   balance =  userData.balance
   let scnBalance = document.getElementById("scn-Balance");
-  scnBalance.innerText = "Tu saldo actual es de: $"+ balance;
-  return balance;
+  scnBalance.innerText = `Tu saldo actual es de: $${balance}`;
+  return balance;// quitar 
 }
 
-function makeAdeposit (actualBalance, depositMount){
-    let total = actualBalance + depositMount;
-    console.log(`El monto ingresado es: $${depositMount} \nEl saldo total es: $${total}`)
+function makeAdeposit (depositMount){
+    let tmpBalance = tmpUser.balance + depositMount;
+    if (tmpBalance >990){
+        alert("El monto ingresado excede el límite de la cuenta")
+    }else{
+        tmpUser.balance += depositMount;
+        console.log(`El monto ingresado es: $${depositMount} \nEl saldo total es: $${tmpUser.balance}`)
+        let scnDeposit = document.getElementById("scn-Deposit");
+        scnDeposit.innerText = `El monto ingresado es: $${depositMount} \nEl saldo total es: $${tmpUser.balance}`;
+    } 
+}
+
+function makeAwithdraw (withdrawMount){
+    let tmpBalance = tmpUser.balance - withdrawMount;
+    if(tmpBalance < 10){
+        alert("El monto a retirar incumple la politica bancaria")
+    /* }else if(tmpUser.balance < 0){
+        alert("El monto a retirar incumple la politica bancaria / no está disponible") */
+    }else{ 
+        tmpUser.balance -= withdrawMount;
+        console.log(`El monto retirado es: $${withdrawMount} \nEl saldo total es: $${tmpUser.balance}`);
+        let scnWithdraw = document.getElementById("scn-Withdraw");
+        scnWithdraw.innerText = `El monto retirado es: $${withdrawMount} \nEl saldo total es: $${tmpUser.balance}`;
+    }
 }
 
 function cleanMessage()
@@ -91,14 +113,41 @@ btnBalance.addEventListener("click", function(){
 
 let btnDeposit = document.getElementById("btn-deposit");
 btnDeposit.addEventListener("click", function(){
+    sectionDeposit.hidden = false;
+    sectionMain.hidden = true;
+});
+
+let btnConfirmDeposit = document.getElementById("btn-confirm-deposit");
+btnConfirmDeposit.addEventListener("click", function(){
+    let vdeposit = document.getElementById("txt-deposit").value;
+    let deposit = parseInt(vdeposit);    
+    makeAdeposit(deposit);
+});
+
+let btnWithdraw = document.getElementById("btn-withdraw");
+btnWithdraw.addEventListener("click", function(){
     sectionWithdraw.hidden = false;
     sectionMain.hidden = true;
 });
 
 let btnConfirmWithdraw = document.getElementById("btn-confirm-withdraw");
 btnConfirmWithdraw.addEventListener("click", function(){
-    let vdeposit = document.getElementById("txt-deposit").value;
-    let deposit = parseInt(vdeposit);    
-    let balance = showBalance(tmpUser);
-    makeAdeposit(balance, deposit);
+    let vwithdraw = document.getElementById("txt-withdraw").value;
+    let withdraw = parseInt(vwithdraw);    
+    makeAwithdraw(withdraw);
 });
+
+let btnBackD = document.getElementById("btn-back-D");
+btnBackD.addEventListener("click", function(){
+    sectionDeposit.hidden = true;
+    sectionWithdraw.hidden = true;    
+    sectionMain.hidden = false;
+});
+
+let btnBackW = document.getElementById("btn-back-W");
+btnBackW.addEventListener("click", function(){
+    sectionWithdraw.hidden = true;    
+    sectionDeposit.hidden = true;
+    sectionMain.hidden = false;
+});
+

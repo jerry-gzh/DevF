@@ -25,11 +25,7 @@
                         <label for="txt-pass" class="form-label">Contraseña:</label>
                         <input type="password" class="form-control" name="txt-pass" id="txt-pass">
                     </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" name="rb-sesion" id="rb-sesion">
-                    </div>
                     <button type="button" class="btn btn-primary" id="btn-login">Login</button>
-                    <button type="button" class="btn btn-danger">Limpiar</button>
                 </form>
             </class>
             <class class="col-12 col-md-4 " id="sectionMain">
@@ -38,10 +34,19 @@
                 <button type="button" class="btn btn-primary" id="btn-deposit">Depositar</button>
                 <button type="button" class="btn btn-primary" id="btn-withdraw">Retirar</button>
             </class>
-            <class class="mb-3" id="sectionWithdraw">
+            <class class="mb-3" id="sectionDeposit">
                 <label for="txt-deposit" class="form-label"> Ingrese el monto a depositar:</label>
                 <input type="number" class="form-control" name="txt-deposit" id="txt-deposit">
-                <button type="button" class="btn btn-primary" id="btn-confirm-withdraw">Confirmar deposito</button>
+                <button type="button" class="btn btn-primary" id="btn-confirm-deposit">Confirmar deposito</button>
+                <button type="button" class="btn btn-primary" id="btn-back-D">Atras</button>
+                <p id ="scn-Deposit" ></p>
+            </class>
+            <class class="mb-3" id="sectionWithdraw">
+                <label for="txt-withdraw" class="form-label"> Ingrese el monto a retirar:</label>
+                <input type="number" class="form-control" name="txt-withdraw" id="txt-withdraw">
+                <button type="button" class="btn btn-primary" id="btn-confirm-withdraw">Confirmar retiro</button>
+                <button type="button" class="btn btn-primary" id="btn-back-W">Atras</button>
+                <p id ="scn-Withdraw" ></p>
             </class>
         </div>
     </main>
