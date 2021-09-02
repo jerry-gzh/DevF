@@ -13,39 +13,40 @@
 <body>
     <div class="alert alert-dismissible" role="alert" id="liveAlert">
     </div>
-    <main class="container mt-3">
+    <main class="container mt-5"></main>
         <div class="row justify-content-center">
-            <class class="col-12 col-md-4 " id="sectionLogin"><!-- Sección login -->
+            <class class="col-12 col-md-2" id="sectionLogin"><!-- Sección login -->
                 <form action="">
                     <div class="mb-3">
                         <label for="txt-user" class="form-label">Usuario:</label>
                         <input type="email" class="form-control" name="txt-user" id="txt-user">
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-5">
                         <label for="txt-pass" class="form-label">Contraseña:</label>
                         <input type="password" class="form-control" name="txt-pass" id="txt-pass">
-                    </div>
-                    <button type="button" class="btn btn-primary" id="btn-login">Login</button>
+                    </div class="p-15">
+                    <button type="button" class="btn btn-outline-secondary col-md-12 align-middle" id="btn-login">Login</button>
                 </form>
             </class>
-            <class class="col-12 col-md-4 " id="sectionMain">
-                <p id ="scn-Balance" ></p>
-                <button type="button" class="btn btn-secondary" id="btn-balance">Consultar saldo </button>
-                <button type="button" class="btn btn-primary" id="btn-deposit">Depositar</button>
-                <button type="button" class="btn btn-primary" id="btn-withdraw">Retirar</button>
+            <class class="col-md-2 justify-content-center" id="sectionMain">
+                <p class="mb-3" id = "scn-Balance" ></p>
+                <button type="button" class="btn btn-outline-secondary col-md-8 align-middle mb-3" id="btn-balance">Consultar saldo </button>
+                <button type="button" class="btn btn-outline-secondary col-md-8 align-middle mb-3" id="btn-deposit">Depositar</button>
+                <button type="button" class="btn btn-outline-secondary col-md-8 align-middle mb-3" id="btn-withdraw">Retirar</button>
+                <button type="button" class="btn btn-outline-secondary col-md-8 align-middle" id="btn-logout">Cerrar sesión</button>
             </class>
-            <class class="mb-3" id="sectionDeposit">
+            <class class="col-md-4 justify-content" id="sectionDeposit">
                 <label for="txt-deposit" class="form-label"> Ingrese el monto a depositar:</label>
-                <input type="number" class="form-control" name="txt-deposit" id="txt-deposit">
-                <button type="button" class="btn btn-primary" id="btn-confirm-deposit">Confirmar deposito</button>
-                <button type="button" class="btn btn-primary" id="btn-back-D">Atras</button>
+                <input type="number" class="form-control col-md-3 mb-3" name="txt-deposit" id="txt-deposit">
+                <button type="button" class="btn btn-outline-secondary col-md-5 mb-3 me-3" id="btn-confirm-deposit">Confirmar deposito</button>
+                <button type="button" class="btn btn-outline-info col-md-5 mb-3" id="btn-back-D">Atras</button>
                 <p id ="scn-Deposit" ></p>
             </class>
-            <class class="mb-3" id="sectionWithdraw">
+            <class class="col-md-4 justify-content" id="sectionWithdraw">
                 <label for="txt-withdraw" class="form-label"> Ingrese el monto a retirar:</label>
-                <input type="number" class="form-control" name="txt-withdraw" id="txt-withdraw">
-                <button type="button" class="btn btn-primary" id="btn-confirm-withdraw">Confirmar retiro</button>
-                <button type="button" class="btn btn-primary" id="btn-back-W">Atras</button>
+                <input type="number" class="form-control col-md-3 mb-3" name="txt-withdraw" id="txt-withdraw">
+                <button type="button" class="btn btn-outline-secondary col-md-5 mb-3 me-3" id="btn-confirm-withdraw">Confirmar retiro</button>
+                <button type="button" class="btn btn-outline-info col-md-5 mb-3" id="btn-back-W">Atras</button>
                 <p id ="scn-Withdraw" ></p>
             </class>
         </div>

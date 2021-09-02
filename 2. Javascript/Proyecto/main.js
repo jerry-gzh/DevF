@@ -1,4 +1,5 @@
 let tmpUser;
+let countNumber = 0;
 
 sectionMain.hidden     = true;
 sectionDeposit.hidden  = true;
@@ -26,8 +27,7 @@ var usuarios = [
 ]
 
 
-function login( correo, password )
-{
+function login( correo, password ){
     let flagAlert = true;
     let alert = document.getElementById("liveAlert");// Relaciona alert con la clase "liveAlert"
     console.log(usuarios.length)
@@ -38,6 +38,8 @@ function login( correo, password )
                 && 
             ( password === tmpUser.pass  )  )
         {
+            countNumber = i;
+            console.log(countNumber);// Guardo la posición en el arreglo 
             alert.classList.add("alert-primary");// Agrega esta clase a la variable alert, que está relacionada al "liveAlert" para que cambie de color 
             alert.innerText="Login Exitoso!!!"; // Agrega texto a la clase alert 
             flagAlert = false;
@@ -53,7 +55,7 @@ function login( correo, password )
         tmpUser = "Error";
     } 
     setTimeout(function(){cleanMessage()}, 3000);// Ejecuta la función en determinado tiempo 
-    //console.log(tmpUser);
+        console.log(tmpUser);
     return (tmpUser);
 }
 
@@ -90,11 +92,10 @@ function makeAwithdraw (withdrawMount){
     }
 }
 
-function cleanMessage()
-{
+function cleanMessage(){
     let alert = document.getElementById("liveAlert");
     alert.classList.remove("alert-danger","alert-primary");
-    alert.innerText="";
+    alert.innerText = "";
 }
 
 let  btnLogin = document.getElementById("btn-login");
@@ -106,6 +107,17 @@ btnLogin.addEventListener("click",function()
     login(usuario,password);
 }); 
 
+let btnLogout = document.getElementById("btn-logout");                           // LOGOUT 
+btnLogout.addEventListener("click",function(){
+    sectionMain.hidden = true;
+    sectionLogin.hidden = false;
+    document.getElementById("txt-user").value = "";
+    document.getElementById("txt-pass").value = "";
+    usuarios.balance = tmpUser.balance[countNumber]; // Actualiza el arreglo original de usuarios 
+    let erase = document.getElementById("scn-Balance");
+    erase.innerText ="";
+});
+
 let btnBalance = document.getElementById("btn-balance");
 btnBalance.addEventListener("click", function(){
     showBalance(tmpUser);
@@ -115,26 +127,40 @@ let btnDeposit = document.getElementById("btn-deposit");
 btnDeposit.addEventListener("click", function(){
     sectionDeposit.hidden = false;
     sectionMain.hidden = true;
+    let erase = document.getElementById("scn-Balance");
+    erase.innerText ="";
 });
 
 let btnConfirmDeposit = document.getElementById("btn-confirm-deposit");
 btnConfirmDeposit.addEventListener("click", function(){
     let vdeposit = document.getElementById("txt-deposit").value;
-    let deposit = parseInt(vdeposit);    
-    makeAdeposit(deposit);
+    let deposit = parseInt(vdeposit);
+    if (!isNaN(deposit)){
+        makeAdeposit(deposit);
+    }else{
+    alert("Ingresa un monto valido"); 
+    }
+    document.getElementById("txt-deposit").value = "";
 });
 
 let btnWithdraw = document.getElementById("btn-withdraw");
 btnWithdraw.addEventListener("click", function(){
     sectionWithdraw.hidden = false;
     sectionMain.hidden = true;
+    let erase = document.getElementById("scn-Balance");
+    erase.innerText ="";
 });
 
 let btnConfirmWithdraw = document.getElementById("btn-confirm-withdraw");
 btnConfirmWithdraw.addEventListener("click", function(){
     let vwithdraw = document.getElementById("txt-withdraw").value;
     let withdraw = parseInt(vwithdraw);    
-    makeAwithdraw(withdraw);
+    if (!isNaN(withdraw)){
+        makeAwithdraw(withdraw);
+    }else{
+    alert("Ingresa un monto valido"); 
+    }
+    document.getElementById("txt-withdraw").value = "";
 });
 
 let btnBackD = document.getElementById("btn-back-D");
@@ -142,6 +168,8 @@ btnBackD.addEventListener("click", function(){
     sectionDeposit.hidden = true;
     sectionWithdraw.hidden = true;    
     sectionMain.hidden = false;
+    let erase = document.getElementById("scn-Deposit");
+    erase.innerText ="";
 });
 
 let btnBackW = document.getElementById("btn-back-W");
@@ -149,5 +177,7 @@ btnBackW.addEventListener("click", function(){
     sectionWithdraw.hidden = true;    
     sectionDeposit.hidden = true;
     sectionMain.hidden = false;
+    let erase = document.getElementById("scn-Withdraw");
+    erase.innerText ="";
 });
 
