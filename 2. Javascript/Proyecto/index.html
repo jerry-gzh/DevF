@@ -33,6 +33,7 @@
                 <button type="button" class="btn btn-outline-secondary col-md-8 align-middle mb-3" id="btn-balance">Consultar saldo </button>
                 <button type="button" class="btn btn-outline-secondary col-md-8 align-middle mb-3" id="btn-deposit">Depositar</button>
                 <button type="button" class="btn btn-outline-secondary col-md-8 align-middle mb-3" id="btn-withdraw">Retirar</button>
+                <button type="button" class="btn btn-outline-secondary col-md-8 align-middle mb-3" id="btn-transfer">Transferir</button>
                 <button type="button" class="btn btn-outline-secondary col-md-8 align-middle" id="btn-logout">Cerrar sesión</button>
             </class>
             <class class="col-md-4 justify-content" id="sectionDeposit">
@@ -48,6 +49,17 @@
                 <button type="button" class="btn btn-outline-secondary col-md-5 mb-3 me-3" id="btn-confirm-withdraw">Confirmar retiro</button>
                 <button type="button" class="btn btn-outline-info col-md-5 mb-3" id="btn-back-W">Atras</button>
                 <p id ="scn-Withdraw" ></p>
+            </class>
+            <class class="col-md-4 justify-content" id="sectionTransfer">
+                <label for="txt-transfer-count" class="form-label"> Ingrese la cuenta destino:</label>
+                <input type="number" class="form-control col-md-3 mb-3" name="txt-transfer-count" id="txt-transfer-count">
+                <button type="button" class="btn btn-outline-secondary col-md-5 mb-3 me-3" id="btn-validate">Validar cuenta</button>
+                <p id ="scn-transfer-validation"></p>
+                <label for="txt-transfer-mount" class="form-label"> Ingrese el monto a transferir:</label>
+                <input type="number" class="form-control col-md-3 mb-3" name="txt-transfer-mount" id="txt-transfer-mount">
+                <button type="button" class="btn btn-outline-secondary col-md-5 mb-3 me-3" id="btn-confirm-transfer">Confirmar transferencia</button>
+                <button type="button" class="btn btn-outline-info col-md-5 mb-3" id="btn-back-T">Atras</button>
+                <p id ="scn-transfer" ></p>
             </class>
         </div>
     </main>

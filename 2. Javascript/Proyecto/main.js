@@ -1,28 +1,34 @@
 let tmpUser;
+let tmpUserT;
 let countNumber = 0;
+let countNumberT = 0;
 
 sectionMain.hidden     = true;
 sectionDeposit.hidden  = true;
 sectionWithdraw.hidden = true;
+sectionTransfer.hidden = true;
 
 var usuarios = [
     {
-        name: "Carlos",
-        usuario:"cburguenog@gmail.com",
-        pass:"contrasena123",
-        balance: 100
+        name: "Matias",
+        usuario:"mm",
+        pass:"000",
+        balance: 100,
+        accountN: 101
     },
     {
-        name:"jorge",
-        usuario:"jorge.mendoza@gmail.com",
-        pass:"jorge123",
-        balance: 200
+        name:"Jorge",
+        usuario:"jj",
+        pass:"111",
+        balance: 200,
+        accountN: 102
     },
     {
-        name:"CC",
+        name:"Andres",
         usuario:"aa",
         pass:"123", 
-        balance: 300
+        balance: 300,
+        accountN: 103
     }
 ]
 
@@ -62,7 +68,7 @@ function login( correo, password ){
 function showBalance(userData){
   balance =  userData.balance
   let scnBalance = document.getElementById("scn-Balance");
-  scnBalance.innerText = `Tu saldo actual es de: $${balance}`;
+  scnBalance.innerText = `${tmpUser.name} tu saldo actual es de: $${balance}`;
   return balance;// quitar 
 }
 
@@ -97,6 +103,7 @@ function cleanMessage(){
     alert.classList.remove("alert-danger","alert-primary");
     alert.innerText = "";
 }
+
 
 let  btnLogin = document.getElementById("btn-login");
 btnLogin.addEventListener("click",function()
@@ -181,3 +188,59 @@ btnBackW.addEventListener("click", function(){
     erase.innerText ="";
 });
 
+let btnTransfer = document.getElementById("btn-transfer");
+btnTransfer.addEventListener("click", function(){
+    sectionMain.hidden = true;
+    sectionTransfer.hidden = false;
+    let erase = document.getElementById("scn-Balance");
+    erase.innerText ="";
+});
+
+let btnBackT = document.getElementById("btn-back-T");
+btnBackT.addEventListener("click", function(){
+    sectionMain.hidden = false;
+    sectionTransfer.hidden = true;
+    let erase = document.getElementById("scn-transfer-validation");
+    erase.innerText ="";
+    document.getElementById("txt-transfer-count").value = "";
+    let erase1 = document.getElementById("scn-transfer");
+    erase1.innerText ="";
+    document.getElementById("txt-transfer-mount").value = "";
+});
+
+let scnValidation = document.getElementById("scn-transfer-validation");
+let btnValidate = document.getElementById("btn-validate");
+btnValidate.addEventListener("click", function(){
+    let txtTransfer = document.getElementById("txt-transfer-count").value;
+    let txtTransferCount = parseInt(txtTransfer);
+    validateAccount(txtTransferCount);
+});
+
+function validateAccount(vAccount){
+    for(let i=0; i < usuarios.length; i++)
+    {
+        tmpUserT = usuarios[i];
+        if( tmpUserT.accountN === vAccount){
+            countNumberT = i;
+            scnValidation.innerText = `El titular de la cuenta es ${tmpUserT.name}`;
+            break;
+        }else{
+            scnValidation.innerText = `La cuenta ingresada no existe`;
+        }
+    }
+}
+
+
+let btnConfirmTransfer = document.getElementById("btn-confirm-transfer");
+let scnTransfer = document.getElementById("scn-transfer");
+
+btnConfirmTransfer.addEventListener("click", function(){
+    //usuarios[countNumberT]
+    let txtTransferMount = document.getElementById("txt-transfer-mount").value;
+    let TransferMount = parseInt(txtTransferMount);
+    tmpUser.balance -= TransferMount;
+    tmpUserT.balance += TransferMount;
+    usuarios.balance = tmpUserT.balance[countNumberT];
+    scnTransfer.innerText =`Se completo tu transferencia por $${TransferMount}
+    a la cuenta de ${tmpUserT.name}`;
+});
