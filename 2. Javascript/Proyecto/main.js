@@ -2,11 +2,13 @@ let tmpUser;
 let tmpUserT;
 let countNumber = 0;
 let countNumberT = 0;
+//let transactions =[] ;
 
 sectionMain.hidden     = true;
 sectionDeposit.hidden  = true;
 sectionWithdraw.hidden = true;
 sectionTransfer.hidden = true;
+sectionTransactions.hidden =true;
 
 var usuarios = [
     {
@@ -14,53 +16,54 @@ var usuarios = [
         usuario:"mm",
         pass:"000",
         balance: 100,
-        accountN: 101
+        accountN: 101,
+        transactions: []
     },
     {
         name:"Jorge",
         usuario:"jj",
         pass:"111",
         balance: 200,
-        accountN: 102
+        accountN: 102,
+        transactions: []
     },
     {
         name:"Andres",
         usuario:"aa",
         pass:"123", 
         balance: 300,
-        accountN: 103
+        accountN: 103,
+        transactions: []
     }
 ]
 
 
 function login( correo, password ){
     let flagAlert = true;
-    let alert = document.getElementById("liveAlert");// Relaciona alert con la clase "liveAlert"
-    console.log(usuarios.length)
+    let alert = document.getElementById("liveAlert");
     for( let i=0; i < usuarios.length; i++  )
     {
-        tmpUser = usuarios[i]; //  se convierte en un objeto temporal para analizar la variable usuario en iteración
+        tmpUser = usuarios[i];
         if( (correo.toLowerCase() === tmpUser.usuario.toLowerCase()) 
                 && 
             ( password === tmpUser.pass  )  )
         {
             countNumber = i;
-            console.log(countNumber);// Guardo la posición en el arreglo 
-            alert.classList.add("alert-primary");// Agrega esta clase a la variable alert, que está relacionada al "liveAlert" para que cambie de color 
-            alert.innerText="Login Exitoso!!!"; // Agrega texto a la clase alert 
+            alert.classList.add("alert-primary");
+            alert.innerText="Login Exitoso!!!";
             flagAlert = false;
-            sectionLogin.hidden = true;//Oculto la sección de login (el formulario)
-            sectionMain.hidden = false;//Muestro la sección principal (los botones)
+            sectionLogin.hidden = true;
+            sectionMain.hidden = false;
             break;
         }
-    } // Una vez que evalua a todos los usuarios, si no encuentra el usuario y contraseña manda error 
+    } 
     if( flagAlert == true )
     {
         alert.classList.add("alert-danger");
         alert.textContent = "Upps!! Revisa usuario y contraseña!!"
         tmpUser = "Error";
     } 
-    setTimeout(function(){cleanMessage()}, 3000);// Ejecuta la función en determinado tiempo 
+    setTimeout(function(){cleanMessage()}, 3000);
         console.log(tmpUser);
     return (tmpUser);
 }
@@ -69,7 +72,6 @@ function showBalance(userData){
   balance =  userData.balance
   let scnBalance = document.getElementById("scn-Balance");
   scnBalance.innerText = `${tmpUser.name} tu saldo actual es de: $${balance}`;
-  return balance;// quitar 
 }
 
 function makeAdeposit (depositMount){
@@ -81,6 +83,7 @@ function makeAdeposit (depositMount){
         console.log(`El monto ingresado es: $${depositMount} \nEl saldo total es: $${tmpUser.balance}`)
         let scnDeposit = document.getElementById("scn-Deposit");
         scnDeposit.innerText = `El monto ingresado es: $${depositMount} \nEl saldo total es: $${tmpUser.balance}`;
+        tmpUser.transactions.push(`Depósito       $${depositMount}          $${tmpUser.balance}`); // Prueba de arreglo 
     } 
 }
 
@@ -88,13 +91,26 @@ function makeAwithdraw (withdrawMount){
     let tmpBalance = tmpUser.balance - withdrawMount;
     if(tmpBalance < 10){
         alert("El monto a retirar incumple la politica bancaria")
-    /* }else if(tmpUser.balance < 0){
-        alert("El monto a retirar incumple la politica bancaria / no está disponible") */
     }else{ 
         tmpUser.balance -= withdrawMount;
         console.log(`El monto retirado es: $${withdrawMount} \nEl saldo total es: $${tmpUser.balance}`);
         let scnWithdraw = document.getElementById("scn-Withdraw");
         scnWithdraw.innerText = `El monto retirado es: $${withdrawMount} \nEl saldo total es: $${tmpUser.balance}`;
+        tmpUser.transactions.push(`Retiro       $${withdrawMount}          $${tmpUser.balance}`);
+    }
+}
+
+function validateAccount(vAccount){
+    for(let i=0; i < usuarios.length; i++)
+    {
+        tmpUserT = usuarios[i];
+        if( tmpUserT.accountN === vAccount){
+            countNumberT = i;
+            scnValidation.innerText = `El titular de la cuenta es ${tmpUserT.name}`;
+            break;
+        }else{
+            scnValidation.innerText = `La cuenta ingresada no existe`;
+        }
     }
 }
 
@@ -104,23 +120,22 @@ function cleanMessage(){
     alert.innerText = "";
 }
 
-
 let  btnLogin = document.getElementById("btn-login");
 btnLogin.addEventListener("click",function()
 {
     let usuario = document.getElementById("txt-user").value;
     let password = document.getElementById("txt-pass").value;
-    console.log(usuario,password);
     login(usuario,password);
 }); 
 
-let btnLogout = document.getElementById("btn-logout");                           // LOGOUT 
+let btnLogout = document.getElementById("btn-logout");
 btnLogout.addEventListener("click",function(){
     sectionMain.hidden = true;
     sectionLogin.hidden = false;
     document.getElementById("txt-user").value = "";
     document.getElementById("txt-pass").value = "";
     usuarios.balance = tmpUser.balance[countNumber]; // Actualiza el arreglo original de usuarios 
+    usuarios.balance = tmpUserT.balance[countNumberT];
     let erase = document.getElementById("scn-Balance");
     erase.innerText ="";
 });
@@ -216,31 +231,36 @@ btnValidate.addEventListener("click", function(){
     validateAccount(txtTransferCount);
 });
 
-function validateAccount(vAccount){
-    for(let i=0; i < usuarios.length; i++)
-    {
-        tmpUserT = usuarios[i];
-        if( tmpUserT.accountN === vAccount){
-            countNumberT = i;
-            scnValidation.innerText = `El titular de la cuenta es ${tmpUserT.name}`;
-            break;
-        }else{
-            scnValidation.innerText = `La cuenta ingresada no existe`;
-        }
-    }
-}
-
-
 let btnConfirmTransfer = document.getElementById("btn-confirm-transfer");
 let scnTransfer = document.getElementById("scn-transfer");
-
 btnConfirmTransfer.addEventListener("click", function(){
-    //usuarios[countNumberT]
     let txtTransferMount = document.getElementById("txt-transfer-mount").value;
     let TransferMount = parseInt(txtTransferMount);
-    tmpUser.balance -= TransferMount;
-    tmpUserT.balance += TransferMount;
-    usuarios.balance = tmpUserT.balance[countNumberT];
-    scnTransfer.innerText =`Se completo tu transferencia por $${TransferMount}
-    a la cuenta de ${tmpUserT.name}`;
+    if (TransferMount < (tmpUser.balance - 10)){
+        tmpUser.balance -= TransferMount;
+        tmpUserT.balance += TransferMount;
+        usuarios.balance = tmpUserT.balance[countNumberT];
+        scnTransfer.innerText =`Se completo tu transferencia por $${TransferMount} a la cuenta de ${tmpUserT.name}`;
+        tmpUser.transactions.push(`Transferencia a ${tmpUserT.name}      $${TransferMount}          $${tmpUser.balance}`);
+        tmpUserT.transactions.push(`Transferencia de ${tmpUser.name}      $${TransferMount}          $${tmpUserT.balance}`);
+    } else{
+        alert(`No cuentas con fondos suficientes`)
+    }
+    
+});
+
+let btnTransactions = document.getElementById("btn-transactions");
+let scnTransactions = document.getElementById("scn-transactions");
+btnTransactions.addEventListener("click",function(){
+    sectionMain.hidden = true;
+    sectionTransactions.hidden = false;
+    scnTransactions.innerText = `${tmpUser.transactions}`;
+        let erase = document.getElementById("scn-Balance");
+    erase.innerText ="";
+});
+
+let btnBackTr = document.getElementById("btn-back-Tr")
+btnBackTr.addEventListener("click", function(){
+    sectionMain.hidden = false;
+    sectionTransactions.hidden = true;
 });
