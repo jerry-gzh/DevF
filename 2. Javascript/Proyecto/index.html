@@ -25,7 +25,8 @@
                         <label for="txt-pass" class="form-label">Contraseña:</label>
                         <input type="password" class="form-control" name="txt-pass" id="txt-pass">
                     </div class="p-15">
-                    <button type="button" class="btn btn-outline-secondary col-md-12 align-middle" id="btn-login">Login</button>
+                    <button type="button" class="btn btn-outline-secondary col-md-12 align-middle mb-3" id="btn-login">Ingresar</button>
+                    <button type="button" class="btn btn-outline-secondary col-md-12 align-middle" id="btn-newuser">Crear cuenta</button>
                 </form>
             </class>
             <class class="col-md-2 justify-content-center" id="sectionMain">
@@ -65,6 +66,16 @@
             <class class="col-md-4 justify-content" id="sectionTransactions">
                 <button type="button" class="btn btn-outline-info col-md-5 mb-3" id="btn-back-Tr">Atras</button>
                 <p id ="scn-transactions" ></p>
+            </class>
+            <class class="col-md-4 justify-content" id="sectionNewUser">
+                <label for="txt-newuser-name" class="form-label">Ingrese su nombre</label>
+                <input type="text" class="form-control col-md-3 mb-3" name="txt-newuser-name" id="txt-newuser-name">
+                <label for="txt-newuser-user" class="form-label">Ingrese un usuario</label>
+                <input type="text" class="form-control col-md-3 mb-3" name="txt-newuser-user" id="txt-newuser-user">
+                <label for="txt-newuser-pass" class="form-label">Ingrese una contraseña</label>
+                <input type="text" class="form-control col-md-3 mb-3" name="txt-newuser-pass" id="txt-newuser-pass">
+                <button type="button" class="btn btn-outline-info col-md-5 " id="btn-newuser-save">Aceptar y crear</button>
+                <button type="button" class="btn btn-outline-info col-md-5 " id="btn-newuser-cancel">Cancelar</button>
             </class>
         </div>
     </main>

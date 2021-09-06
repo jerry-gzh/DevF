@@ -1,14 +1,23 @@
-let tmpUser;
+//let tmpUser;
 let tmpUserT;
 let countNumber = 0;
 let countNumberT = 0;
-//let transactions =[] ;
 
 sectionMain.hidden     = true;
 sectionDeposit.hidden  = true;
 sectionWithdraw.hidden = true;
 sectionTransfer.hidden = true;
-sectionTransactions.hidden =true;
+sectionNewUser. hidden = true;
+sectionTransactions.hidden = true;
+
+let tmpUser = [
+    {name: "",
+    pass: "",
+    balance: "",
+    accountN: "",
+    transactions: []
+},
+]
 
 var usuarios = [
     {
@@ -255,7 +264,7 @@ btnTransactions.addEventListener("click",function(){
     sectionMain.hidden = true;
     sectionTransactions.hidden = false;
     scnTransactions.innerText = `${tmpUser.transactions}`;
-        let erase = document.getElementById("scn-Balance");
+    let erase = document.getElementById("scn-Balance");
     erase.innerText ="";
 });
 
@@ -263,4 +272,38 @@ let btnBackTr = document.getElementById("btn-back-Tr")
 btnBackTr.addEventListener("click", function(){
     sectionMain.hidden = false;
     sectionTransactions.hidden = true;
+});
+
+let btnNewUser = document.getElementById("btn-newuser")
+btnNewUser.addEventListener("click", function(){
+    sectionLogin.hidden = true;
+    sectionNewUser.hidden = false;
+});
+
+let btnNewUserCancel = document.getElementById("btn-newuser-cancel")
+btnNewUserCancel.addEventListener("click", function(){
+    sectionLogin.hidden = false;
+    sectionNewUser.hidden = true;
+});
+
+let btnNewUserSave = document.getElementById("btn-newuser-save")
+
+btnNewUserSave.addEventListener("click", function(){
+    let txtNewUserName = document.getElementById("txt-newuser-name").value;
+    let txtNewUserUser = document.getElementById("txt-newuser-user").value;
+    let txtNewUserPass = document.getElementById("txt-newuser-pass").value;
+    tmpUser.name = txtNewUserName;
+    tmpUser.usuario = txtNewUserUser;
+    tmpUser.pass = txtNewUserPass;
+    tmpUser.balance = 0;
+    tmpUser.accountN = usuarios.length+101;
+    tmpUser.transactions = [`Se creo la cuenta`];
+    console.log(tmpUser);
+    usuarios.push(tmpUser);
+    console.log(usuarios);
+    document.getElementById("txt-newuser-name").value = "";
+    document.getElementById("txt-newuser-user").value = "";
+    document.getElementById("txt-newuser-pass").value = "";
+    sectionLogin.hidden = false;
+    sectionNewUser.hidden = true;
 });
