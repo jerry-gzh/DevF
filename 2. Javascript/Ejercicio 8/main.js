@@ -95,10 +95,65 @@ for(i=0; i<=4; i++){
 //Pero para múltiplos de tres imprima "Fizz" en lugar del número y para los múltiplos de cincoimprima "Buzz". 
 //Para números que son múltiplos de tres y cinco, escriba "FizzBuzz".
 
-for(i=0; i<=100; i++){
-    if(i%3){
-        console.log("Fizz")
-    }else if(i%5){
-        console.log("Buzz")
+/* for(i=0; i<=100; i++){
+    if(i%3==0  && i%5==0){
+        console.log(`${i}. Fizz-Buzz`);
+    }else if(i%3 == 0){
+        console.log(`${i}. Fizz`);
+    }else if(i%5 == 0){
+        console.log(`${i}. Buzz`);
     }
 }
+ */
+
+//Ejercicio 7
+//nf = prompt(`¿Cuantos números felices buscas?`)
+//for (i=0, i=9, i++){
+/* var i = prompt("Ingrese");
+var a = 0;
+var b = 0;
+var digit = 0;
+var c = 0;
+
+c=i;
+for(var j=0; j<=3; j++){
+    
+    digit = c.length;
+    console.log(digit);
+    if (digit == 1){
+        console.log("1 digitos");
+        c = c**2;
+        console.log(`i al ^2 : ${c}`);
+        //i = a;
+    }else if (digit == 2){
+        console.log("2 digitos");
+    }
+    console.log(`Iteración ${j}`);
+};
+
+ */
+/* for(j=0; j<=5; j++){
+
+    digit = i.length;
+    console.log(digit);
+    if (digit == 1){
+        a = i**2;
+        console.log(a);
+        i = a;
+        console.log(j);
+    }else if (digit == 2){
+        //temp = i;
+        //b = temp.shift();
+        console.log("dos digitos");
+    }
+    console.log(j)
+}; */
+
+/* 
+for (i=0; i<=5; i++){
+    console.log(i);
+} */
+    
+    
+//    else if (digit == 1){}
+//}

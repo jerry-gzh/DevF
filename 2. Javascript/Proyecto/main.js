@@ -287,7 +287,6 @@ btnNewUserCancel.addEventListener("click", function(){
 });
 
 let btnNewUserSave = document.getElementById("btn-newuser-save")
-
 btnNewUserSave.addEventListener("click", function(){
     let txtNewUserName = document.getElementById("txt-newuser-name").value;
     let txtNewUserUser = document.getElementById("txt-newuser-user").value;
@@ -300,6 +299,7 @@ btnNewUserSave.addEventListener("click", function(){
     tmpUser.transactions = [`Se creo la cuenta`];
     console.log(tmpUser);
     usuarios.push(tmpUser);
+    tmpUser = [];
     console.log(usuarios);
     document.getElementById("txt-newuser-name").value = "";
     document.getElementById("txt-newuser-user").value = "";

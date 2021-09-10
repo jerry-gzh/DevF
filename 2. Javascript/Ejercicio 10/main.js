@@ -1,3 +1,7 @@
+// Ejercicios HTML + CSS + DOM
+
+// Ejercicio 1. Venta de perfumes
+
 const perfumes = [
     { 
     nombre: "Aqua",
@@ -32,10 +36,6 @@ for (let a = 0; a < vendedores.length; a++) {
 console.log(venta_Juana);
 console.log(venta_Pedro);
 
-
-// Saber cuantos perfumes se vendieron de cada uno 
-// Saber el monto total vendido
-
 function ventas ( flag, vendedor, ventas){
     console.log(`Datos de venta de ${vendedor}`)
     let total = 0; 
@@ -49,6 +49,18 @@ function ventas ( flag, vendedor, ventas){
         console.log(`El total de ventas es ${total}`)
     } return total;
 }  
+
+function ventasNi ( flag, vendedor, ventas){
+    let total = 0; 
+    let cuenta = 0;
+    if(flag){
+        for (let i= 0; i < perfumes.length; i++){
+            cuenta = ventas[i] * perfumes[i].precio;
+            total += cuenta; 
+        }
+    } return total;
+}  
+
 
 function empleadomes(venta1, venta2) {
     if(venta1 > venta2){
@@ -79,9 +91,14 @@ btnPedro.addEventListener("click",function(){
 let btnMes = document.getElementById("btn-Mes");
 btnMes.addEventListener("click",function(){
     console.clear();
-    let a= ventas(true, vendedores[0], venta_Juana);
-    let b= ventas(true, vendedores[1], venta_Pedro);
+    let a= ventasNi(true, vendedores[0], venta_Juana);
+    let b= ventasNi(true, vendedores[1], venta_Pedro);
     empleadomes(a,b)
     }
     );
+
+
+
+
+
 
