@@ -50,7 +50,7 @@ function ventas ( flag, vendedor, ventas){
     } return total;
 }  
 
-function ventasNi ( flag, vendedor, ventas){
+function ventasNi ( flag, ventas){
     let total = 0; 
     let cuenta = 0;
     if(flag){
