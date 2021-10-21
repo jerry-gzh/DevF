@@ -1,48 +1,58 @@
-* {
-    /*Setear margenes generales para adaptar a cualquier navegador*/
+* { /*Setear margenes generales para adaptar a cualquier navegador*/
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     align-self: center;
 }
 
-
 html {
     font-size: 62.5%; /*Equivalencia para rem a 10px*/
 }
 
-.card-img-top{width:10rem !important;}
-
-.card {width: 10rem;
+.card-img-top{
+    width:12rem !important;
+    max-height: 15rem;
 }
 
-/* .card{
-    position: relative;
-    display: flex ;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: rgb(221, 38, 38);
-    background-clip: border-box;
-    border: 3px solid rgba(0,0,0,.125);
+.card {
+    width: 13rem;
+    height: 17rem;
     border-radius: 1rem;
+    margin-bottom: 2rem;
+    background-color: #82b8ff42 !important;
 }
 
+.card-title{
+    font-size: 2rem;
+    color: rgb(235, 235, 235);
+}
+
+.card-text{
+    color: rgba(217, 255, 0, 0.733);
+}
+
+.card.img{
+    max-height: 1rem;
+}
 
 .card-body{
-    font-size: 2rem;
+    font-size: 1.5rem;
     align-items: center;
-    justify-content:  center;
+    justify-content: center;
+    font-family: 'Rampart One', cursive;
     }
 
 .body{
-    background-color: rgb(16, 190, 190);
+    background-image: url(https://cdn.pixabay.com/photo/2016/08/27/11/59/pokemon-1624022_960_720.jpg);
+    background-size:contain;
 }
 
 .container {
-    column-count: 2;
+    margin-top: 15rem;
+    flex-wrap: wrap ;
+    display: flex;
+    column-count: 8;
     column-gap: 10rem;
-    width: 98%;
-    background:black;
-    margin: auto;
-  } */
+    width: 99%;
+    
+  } 

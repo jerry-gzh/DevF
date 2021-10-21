@@ -2,7 +2,7 @@
 async function obtenerPokemons()
 {
     try{
-        const response =  await axios.get("https://pokeapi.co/api/v2/pokemon?limit=20&offset=0");
+        const response =  await axios.get("https://pokeapi.co/api/v2/pokemon?limit=150&offset=0");
         
         if(response.status === 200)
         {
