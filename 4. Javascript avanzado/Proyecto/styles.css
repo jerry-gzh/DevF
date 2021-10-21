@@ -22,6 +22,11 @@ html {
     background-color: #82b8ff42 !important;
 }
 
+.card:hover{
+    background-color: coral;
+    color: cornflowerblue;
+    }
+
 .card-title{
     font-size: 2rem;
     color: rgb(235, 235, 235);
@@ -42,13 +47,16 @@ html {
     font-family: 'Rampart One', cursive;
     }
 
+
+
 .body{
     background-image: url(https://cdn.pixabay.com/photo/2016/08/27/11/59/pokemon-1624022_960_720.jpg);
     background-size:contain;
 }
 
 .container {
-    margin-top: 15rem;
+    margin-top: 7rem;
+    margin-bottom: 10rem;
     flex-wrap: wrap ;
     display: flex;
     column-count: 8;
@@ -56,3 +64,8 @@ html {
     width: 99%;
     
   } 
+
+.logo img{
+    height: 11rem;
+    margin-left: 80rem;
+}
