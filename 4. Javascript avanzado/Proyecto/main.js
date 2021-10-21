@@ -1,92 +1,19 @@
-// Función busqueda
-function obtenerDatosPokemon(nombre){  
-    axios.get(`https://pokeapi.co/api/v2/pokemon/${nombre}`)
-        .then( response =>{
-            //se cumplio promesa
-            if(response.status === 200)
-            {
-                let imgurl = response.data.sprites.front_default; //Está es la imágen que se imprimirá 
-                //console.log(response.data);//Acceso a todos los parámetros
-                /* console.log(response.data.name);
-                console.log(`ID: ${response.data.id}`);
-                console.log(response.data.height);
-                console.log(response.data.weight);
-                 */
-
-                mostrardatos(response.data);
-                // CON MAP
-                response.data.types.map(item => {
-                    console.log(item.type.name);
-                    //mostrarTipo(item.type.name,imgurl);
-                });
-                console.log("_______");
-
-            }else{
-                console.log("NO SE ENCONTRO LA INFORMACION");
-            }
-        })
-        .catch( e =>{
-            console.log(e);
-            }   
-        );
-}
-
-//Conexión con pantalla
-function mostrarTipo(tipo,imgUrl){
-    let body = document.getElementById("body");//jalar el elemento que tenga el body
-
-    let nombreTipo = document.createElement("h1");
-    nombreTipo.innerText = tipo;
-
-    let imgPokemon = document.createElement("img");
-    imgPokemon.src = imgUrl;
-
-    body.appendChild(nombreTipo);// Agregate a donde se indique 
-    body.appendChild(imgPokemon);
-}
-
-function mostrardatos(datos){
-    console.log(datos);
-    let body = document.getElementById("body");//Destino dentro HTML
-    let card = document.createElement("div");
-    card.className = "card" 
-    let img = document.createElement("img");
-    img.src = datos.sprites.front_default;
-    img.className = "card-img-top"
-
-    
-    card.appendChild(img);
-    body.appendChild(card);
-}
-
-
-// 
-/* <div class="card" style="width: 10rem;"> //Poner estilo directo en CSS 
-<img class="card-img-top" src="..." alt="Card">
-<div class="card-body">
-  <h5 class="card-title" >Nombre</h5>
-  <p class="card-text">Descripción rápida</p>
-  <a href="#" class="btn btn-primary">Detalles</a>
-</div>
-</div> */
-
-
-
-
-
-
+// Función rango y extracción
 function obtenerPokemons()
 {
-    axios.get("https://pokeapi.co/api/v2/pokemon?limit=100&offset=0")
+    axios.get("https://pokeapi.co/api/v2/pokemon?limit=10&offset=0")
     .then(response =>{
         if(response.status === 200)
         {
-            response.data.results.map(item =>{
-                //console.log(item.name);
-                //console.log(item.height);
-                obtenerDatosPokemon(item.name)
-                mostrarPokemons(item.name)
-            })
+            Promise.all(response.data.results.map(async item =>{
+                //obtenerDatosPokemon(item.name)
+                const axiosresult = await axios.get (`https://pokeapi.co/api/v2/pokemon/${item.name}`);
+            if (axiosresult.status === 200)
+            {
+                return await mostrarDatos(axiosresult.data);
+            }
+        }
+            ))
         }else
         {
             alert("NO SE OBTUVO INFORMACION");
@@ -95,14 +22,70 @@ function obtenerPokemons()
     .catch(error =>{})
 }
 
-function mostrarPokemons(nombre){
-    let body = document.getElementById("body");
-    let tagLabel = document.createElement("label");
-    tagLabel.textContent = nombre;
-    body.appendChild(tagLabel);
+
+async function obtenerDatosPokemon(nombre){  
+    /* await axios.get(`https://pokeapi.co/api/v2/pokemon/${nombre}`)
+        .then( response =>{ //se cumplio promesa
+            if(response.status === 200)
+            {
+                mostrarDatos(response.data);
+                // CON MAP
+                response.data.types.map(item => {
+                   // console.log(item.type.name);
+                });
+            }else{
+                console.log("NO SE ENCONTRO LA INFORMACION");
+            }
+        })
+        .catch( e =>{
+            console.log(e);
+            }   
+        ); */
+            const axiosresult = await axios.get (`https://pokeapi.co/api/v2/pokemon/${nombre}`);
+            if (axiosresult.status === 200)
+            {
+                await mostrarDatos(axiosresult.data);
+            }
+
+
 }
 
+function mostrarDatos(datos){
+    //console.log(datos);
 
-//obtenerDatosPokemon("charizard")
+    let body = document.getElementById("body");//Body como destino dentro HTML
+    let card = document.createElement("div");//Crea un nuevo div
+    card.className = "card" //Crea la clase card
+    let img = document.createElement("img");//Crea el img 
+    img.src = datos.sprites.front_default; //Asigna la fuente de la img
+    img.className = "card-img-top"; // Crea la clase de la img
+
+    let cardBody = document.createElement("div");
+    cardBody.className = "card-body";
+    let cardTitle = document.createElement("h5");
+    cardTitle.className = "card-title";
+    cardTitle.innerText = datos.name;
+    let cardText = document.createElement("p");
+    cardText.className = "card-text";
+    cardText.innerText = `# ${datos.id}`;
+
+
+    card.appendChild(img);// Asigna la imagen a la tarjeta
+
+    card.appendChild(cardBody);
+    cardBody.appendChild(cardTitle);
+    cardBody.appendChild(cardText);
+    body.appendChild(card);// Assigna la tarjeta al body 
+}
+
+/* <div class="card" style="width: 10rem;"> //Poner estilo directo en CSS 
+<img class="card-img-top" src="..." alt="Card">
+<div class="card-body">
+  <h5 class="card-title" >Nombre</h5>
+  <p class="card-text">Descripción rápida</p>
+  <a href="#" class="btn btn-primary">Detalles</a>
+</div>
+</div>
+ */
 
 obtenerPokemons()
