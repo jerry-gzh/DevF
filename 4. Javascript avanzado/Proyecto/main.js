@@ -1,59 +1,47 @@
 // Función rango y extracción
-function obtenerPokemons()
+async function obtenerPokemons()
 {
-    axios.get("https://pokeapi.co/api/v2/pokemon?limit=10&offset=0")
-    .then(response =>{
+    try{
+        const response =  await axios.get("https://pokeapi.co/api/v2/pokemon?limit=20&offset=0");
+        
         if(response.status === 200)
         {
-            Promise.all(response.data.results.map(async item =>{
-                //obtenerDatosPokemon(item.name)
-                const axiosresult = await axios.get (`https://pokeapi.co/api/v2/pokemon/${item.name}`);
-            if (axiosresult.status === 200)
-            {
-                return await mostrarDatos(axiosresult.data);
-            }
-        }
+            const ultimo= await Promise.all(
+                response.data.results.map(async (item) => {                
+                    const responseFinal = await obtenerDatosPokemon(item.name)                    
+                    return (responseFinal)
+                }
             ))
+            //console.log(ultimo)
+            ultimo.map(last=> mostrarDatos(last) )
+
+            
         }else
         {
             alert("NO SE OBTUVO INFORMACION");
         }
-    })
-    .catch(error =>{})
+    }
+    catch(error){
+        console.log(error)
+    }
 }
 
 
-async function obtenerDatosPokemon(nombre){  
-    /* await axios.get(`https://pokeapi.co/api/v2/pokemon/${nombre}`)
-        .then( response =>{ //se cumplio promesa
-            if(response.status === 200)
-            {
-                mostrarDatos(response.data);
-                // CON MAP
-                response.data.types.map(item => {
-                   // console.log(item.type.name);
-                });
-            }else{
-                console.log("NO SE ENCONTRO LA INFORMACION");
-            }
-        })
-        .catch( e =>{
-            console.log(e);
-            }   
-        ); */
-            const axiosresult = await axios.get (`https://pokeapi.co/api/v2/pokemon/${nombre}`);
-            if (axiosresult.status === 200)
-            {
-                await mostrarDatos(axiosresult.data);
-            }
-
-
+async function obtenerDatosPokemon(nombre){    
+    try {
+        const axiosresult = await axios.get (`https://pokeapi.co/api/v2/pokemon/${nombre}`)            
+        return axiosresult.data
+        //mostrarDatos(axiosresult.data)               
+            
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 function mostrarDatos(datos){
     //console.log(datos);
 
-    let body = document.getElementById("body");//Body como destino dentro HTML
+    let body = document.getElementById("container");//Body como destino dentro HTML
     let card = document.createElement("div");//Crea un nuevo div
     card.className = "card" //Crea la clase card
     let img = document.createElement("img");//Crea el img 

@@ -1,3 +1,48 @@
-label { display: inline-block; margin: 1rem; }
+* {
+    /*Setear margenes generales para adaptar a cualquier navegador*/
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    align-self: center;
+}
 
-.card-img-top{width: 100px !important}
+
+html {
+    font-size: 62.5%; /*Equivalencia para rem a 10px*/
+}
+
+.card-img-top{width:10rem !important;}
+
+.card {width: 10rem;
+}
+
+/* .card{
+    position: relative;
+    display: flex ;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: rgb(221, 38, 38);
+    background-clip: border-box;
+    border: 3px solid rgba(0,0,0,.125);
+    border-radius: 1rem;
+}
+
+
+.card-body{
+    font-size: 2rem;
+    align-items: center;
+    justify-content:  center;
+    }
+
+.body{
+    background-color: rgb(16, 190, 190);
+}
+
+.container {
+    column-count: 2;
+    column-gap: 10rem;
+    width: 98%;
+    background:black;
+    margin: auto;
+  } */
