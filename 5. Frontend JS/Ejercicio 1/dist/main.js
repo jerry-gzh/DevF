@@ -1,0 +1,1 @@
+(()=>{"use strict";console.log(`Hola ${"Clase Gen10"}, saludos desde JS`)})();
