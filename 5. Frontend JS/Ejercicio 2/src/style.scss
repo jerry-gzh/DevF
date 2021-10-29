@@ -1,0 +1,15 @@
+@import "~bootstrap/scss/bootstrap";
+.image-card {
+  max-width: 200px;
+  margin: auto;
+}
+.card {
+  text-align: center;
+  cursor: pointer;
+}
+#imageModal {
+  width: 100%;
+}
+#titlePage {
+  text-align: center;
+}
