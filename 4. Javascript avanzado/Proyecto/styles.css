@@ -16,9 +16,9 @@ html {
 
 .card {
     width: 13rem;
-    height: 17rem;
+    height: 22rem;
     border-radius: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
     background-color: #82b8ff42 !important;
 }
 

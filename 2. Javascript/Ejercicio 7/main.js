@@ -1,4 +1,4 @@
-// Ejercicios funciones
+/* // Ejercicios funciones
 
 // Ejercicio 1
 // Hacer una función que convierta de grados centígrados a Farenheit.
@@ -68,5 +68,15 @@ function fact(num){
     }
     return b; 
 } 
-console.log(fact(num));
+console.log(fact(num)); */
 
+var edad = parseInt(prompt("Ingrese la edad:"));
+function mayorEdad(edad) {
+  if (edad > 18) {
+    console.log("Mayor de edad");
+  } else {
+    console.log("Menor de edad");
+  }
+}
+
+mayorEdad(edad);

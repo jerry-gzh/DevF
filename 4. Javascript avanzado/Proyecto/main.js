@@ -14,7 +14,6 @@ async function obtenerPokemons()
             ))
             //console.log(ultimo)
             ultimo.map(last=> mostrarDatos(last) )
-
             
         }else
         {
@@ -43,7 +42,7 @@ function mostrarDatos(datos){
 
     let body = document.getElementById("container");//Body como destino dentro HTML
     let card = document.createElement("div");//Crea un nuevo div
-    card.className = "card" //Crea la clase card
+    card.className = ("card"); //Crea la clase card
     let img = document.createElement("img");//Crea el img 
     img.src = datos.sprites.front_default; //Asigna la fuente de la img
     img.className = "card-img-top"; // Crea la clase de la img
@@ -56,13 +55,15 @@ function mostrarDatos(datos){
     let cardText = document.createElement("p");
     cardText.className = "card-text";
     cardText.innerText = `# ${datos.id}`;
-
+    let cardType = document.createElement("h4");
+    cardType.className = "card-type";
+    cardType.innerText = `Tipo ${datos.types.map(item => {return item.type.name})}`;
 
     card.appendChild(img);// Asigna la imagen a la tarjeta
-
     card.appendChild(cardBody);
     cardBody.appendChild(cardTitle);
     cardBody.appendChild(cardText);
+    cardBody.appendChild(cardType);
     body.appendChild(card);// Assigna la tarjeta al body 
 }
 
