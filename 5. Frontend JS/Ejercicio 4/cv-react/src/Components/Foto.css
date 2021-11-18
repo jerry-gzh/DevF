@@ -1,0 +1,14 @@
+.bg-picture
+{
+    width: 100%;
+    display: block;
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(166,34,34,1) 100%, rgba(0,212,255,1) 100%);
+    padding: 1.5rem 0;
+}
+
+.bg-picture img{
+    max-width: 180px;
+    display: block;
+    margin: 0 auto;
+    background-color: greenyellow ;
+}

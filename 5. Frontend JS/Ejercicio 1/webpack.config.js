@@ -1,4 +1,4 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin"); // Se debe mandar llamar el plugin
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
@@ -34,7 +34,7 @@ module.exports = {
     },
     {
       type: "asset/resource", // Usamos assest module, es nuevo de webpack
-      test: /\.(png|jpg|svg|gif|jpeg)$/, //tipo de archivo a biscar
+      test: /\.(png|jpg|svg|gif|jpeg)$/, //tipo de archivo a buscar
       generator: {
         filename: "img/[name][ext]", //como va a generar el nombre de la image
       },
@@ -44,8 +44,8 @@ module.exports = {
     ],
   },
   plugins: [
-    // Aquí se cargan los Plugins de Webpack
-    new HtmlWebpackPlugin({
+    // Aquí se cargan los Plugins de Webpack  
+    new HtmlWebpackPlugin({ //Con la palabra new instanciamos un objeto
       template: "./src/index.html", //Que archivo HTML va a ser el base de mi proyecto en la carpeta src
       filename: "./index.html", // Que único archivo de HTML se va a generar en la carpeta dist
       //El archivo de conf. de webpack simula que se trabaja desde la carpeta dist, por lo que no se necesita especificar.
