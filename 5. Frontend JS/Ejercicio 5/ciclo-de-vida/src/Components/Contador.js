@@ -1,14 +1,13 @@
 import React from "react";
 
-export default Contador extends React.Component{
-    export default class CicloDeVida extends React.Component{
-        constructor(props){
-            super(props);
-            console.log("Desde constructor")
-            this.state={
-                contador:0,
-            };
-        }
-
-
+export default class Contador extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  componentWillUnmount() {
+    console.log("El componente Contador será eliminado");
+  }
+  render() {
+    return <h3>{this.props.contador}</h3>;
+  }
 }
