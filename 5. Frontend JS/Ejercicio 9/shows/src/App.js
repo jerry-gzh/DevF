@@ -24,12 +24,17 @@ class App extends React.Component{
         <h1>Consulta TV shows</h1>
         <SearchBar emitSearch={this.search}/> 
         {
-          //this.state.results.map((item, index) => <ImageCard key={index} url={item.show.image.medium}/> )
+          this.state.results.map((item, index) => {
+            return item.show.image ? (
+              <ImageCard key={index} url={item.show.image.medium}/> )
+              : (<p>No hay imagen</p>);
+          }
+          //<ImageCard key={index} url={item.show.image.medium}/> )
           //console.log(this.state.results)
-        }
+          )}
       </div>
     );
-  }
+  } 
 }
 
 export default App;
