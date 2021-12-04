@@ -2,12 +2,11 @@ import React , {useEffect, useState} from "react";
 import axios from "axios";
 
 export default function Clima (){
-    const[datosApi, setDatosApi] = useState({});// Aquí se guarda la respuesta de la API 
+    const [datosApi, setDatosApi] = useState({});// Aquí se guarda la respuesta de la API 
     const [valorInput, setValorInput] = useState ("");// Guarda valor input
     const [ciudad, setCiudad] = useState ("Morelia");// Guarda la ciudad a buscar
     const apiKey = process.env.REACT_APP_WEATHER_KEY; //Key API 
     const url= `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`;
-
 
         useEffect(()=> {
             console.log("Antes");

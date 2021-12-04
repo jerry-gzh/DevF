@@ -38,7 +38,7 @@ function App() {
       </header>
         <Switch> {/* Switch valida la ruta en la que estamos actualmente */}
           <Route exact path='/'> {/*Exact nos manda exactamente a esa ruta */}
-            <Home/>
+            <Home/>  {/* Componente al cual se enviará */}
           </Route>
           <Route exact path='/portafolio'>
             <Portafolio/>
@@ -107,7 +107,7 @@ function Portafolio(){
 }
 
 function PortafolioDetalle(){
-  let {pid} = useParams(); {/* useParams es el HOOK que recibe el parámetro de pid */}
+  let {pid} = useParams(); {/* useParams es el HOOK que recibe el parámetro de las URL ej: pid */}
   let history = useHistory(); {/* Hook para usar el historial de la URL */}
   const proyectos = [
     { id: 1, nombre: "Pinterest", desc: "descripción" },
