@@ -1,0 +1,10 @@
+.home-container{
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  text-align: center;
+}
+
+.home-container-izquierdo, .home-container-derecho {
+  width: 50%;
+}
