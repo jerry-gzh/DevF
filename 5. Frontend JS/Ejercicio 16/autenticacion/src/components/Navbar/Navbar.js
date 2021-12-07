@@ -1,7 +1,11 @@
 import React from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
+import { useUserContext } from "../../context/userContext";
 const Navbar = () => {
+  const token = window.localStorage.getItem('token')
+  const context = useUserContext()
+
   return (
     <>
       <nav className="navbar">
@@ -19,15 +23,32 @@ const Navbar = () => {
             <li>
               <Link to="/">Home</Link>
             </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/signup">Signup</Link>
-            </li>
-            <li>
-              <Link to="/item">Productos</Link>
-            </li>
+            {context.usuarioActual ? (
+              <li>
+                <Link to="/">
+                  Bienvenido {context.usuarioActual.user.first_name}
+                </Link>
+              </li>
+            ): null }
+            {token ? (
+              <>
+                <li>
+                  <Link to="/item">Productos</Link>
+                </li>
+                <li>
+                  <Link to="/logout">Logout</Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link to="/login">Login</Link>
+                </li>
+                <li>
+                  <Link to="/signup">Signup</Link>
+                </li>
+              </>
+              )}
           </div>
         </ul>
       </nav>

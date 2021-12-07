@@ -4,18 +4,17 @@
 
 import { useState } from "react";
 
-export default function useForm(callback, datos) {
+export default function useForm(callback, datos) { // datos, extrae los valores de autocompletado
   const [inputs, setInputs] = useState(datos); //vamos a guardar los valores del formulario
   console.log(inputs);
 
   const handleInput = (event) => {
     const { name, value } = event.target;
-    console.log("Name es: " + name, "El valor del input " + value);
     setInputs({ ...inputs, [name]: value });
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault(); //Evitar el refres de la página
+    event.preventDefault(); //Evitar el refresh de la página
     callback(inputs);
   };
 

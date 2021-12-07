@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import withProtection from "../utils/withProtection"
 
-export default function Item() {
+const Item = () => {
   return (
     <div>
       <h1>ITEM</h1>
     </div>
-  )
-}
+  );
+};
+
+export default withProtection(Item);
+
