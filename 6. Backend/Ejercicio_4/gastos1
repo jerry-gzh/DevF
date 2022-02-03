@@ -1,0 +1,15 @@
+-- CREATE EXTENSION IF NOT EXISTS "uuid-ossp"
+
+-- 	CREATE TABLE gastos (
+-- 		id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+-- 		created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+-- 		amount INTEGER NOT NULL
+-- 	);
+
+-- 	INSERT INTO gastos (amount)
+-- 	VALUES (230)
+
+ SELECT * FROM gastos
+ ORDER BY amount desC;
+
+-- drop table gastos

@@ -17,7 +17,9 @@ function UserProvider(props){
       axios
       .get("https://ecomerce-master.herokuapp.com/api/v1/user/me", config)
       .then((response) => {
-        setUsuarioActual(response.data)
+        if (response.status === 200){
+          setUsuarioActual(response.data)
+        }
       });
     }
   }, [token]);

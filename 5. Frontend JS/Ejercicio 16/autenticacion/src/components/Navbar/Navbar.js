@@ -24,14 +24,12 @@ const Navbar = () => {
               <Link to="/">Home</Link>
             </li>
             {context.usuarioActual ? (
-              <li>
-                <Link to="/">
-                  Bienvenido {context.usuarioActual.user.first_name}
-                </Link>
-              </li>
-            ): null }
-            {token ? (
               <>
+                <li>
+                  <Link to="/Profile">
+                    Bienvenido {context.usuarioActual.user.first_name}
+                  </Link>
+                </li>
                 <li>
                   <Link to="/item">Productos</Link>
                 </li>
@@ -39,7 +37,7 @@ const Navbar = () => {
                   <Link to="/logout">Logout</Link>
                 </li>
               </>
-            ) : (
+            ): (
               <>
                 <li>
                   <Link to="/login">Login</Link>

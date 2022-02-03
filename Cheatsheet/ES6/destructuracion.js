@@ -48,3 +48,14 @@ console.log(pokemon4, pokemon5);
 const a=[1,2,3,4,5,6];
 const [x,y,...resto] = a
 console.log("Combinando don spread Op: ",resto) // retorna [3,4,5,6]
+
+//  Ejemplo freeCodeCamp
+
+const LOCAL_FORECAST = {
+    yesterday: { low: 61, high: 75 },
+    today: { low: 64, high: 77 },
+    tomorrow: { low: 68, high: 80 }
+  };
+    
+  const {today: { low: lowToday , high: highToday }} = LOCAL_FORECAST; // Se asigna low a lowToday, high a highToday 
+
