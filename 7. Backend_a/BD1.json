@@ -1,0 +1,20 @@
+[
+  {
+    "id": 0,
+    "name": "Tobby",
+    "type": "perro",
+    "owner ": "Clau"
+  },
+  {
+    "id": 1,
+    "name": "Lola",
+    "type": "vaca",
+    "owner ": "Leo"
+  },
+  {
+    "id": 2,
+    "name": "Bottas",
+    "type": "perro",
+    "owner ": "Matt"
+  }
+]
