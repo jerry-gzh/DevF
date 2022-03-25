@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import { fetchTasks, createTask } from './api';
+import { fetchTasks, createTask, deleteTask } from './api';
 import './App.css';
 
 
@@ -24,7 +24,7 @@ function App() {
       .catch((err) => {
         console.error(err)
       })
-    }, 3000)
+    }, 2000)
     return () => {
       clearTimeout(timeOutId)
     }
@@ -47,6 +47,17 @@ function App() {
     const createdTask = res.data;
     setTasks(tasks.concat(createdTask))
     setTaskText('')
+    })
+    .catch((error) => {
+      console.error(error)
+    })
+  }
+
+  const onDeleteTask = (id) => {
+    deleteTask(id)
+    .then((res) =>{
+      const deleteTask = res.data
+      setTasks(tasks.filter((t) => t._id !== id))
     })
     .catch((error) => {
       console.error(error)
@@ -77,9 +88,10 @@ function App() {
           return (
             <div key={task._id} className="task">
               <p>{task.text}</p>
+              <span onClick={() => onDeleteTask(task._id)} className='task__delete'>X</span>
             </div>
           )
-        })}
+        }).reverse()}
       </header>
     </div>
   );
