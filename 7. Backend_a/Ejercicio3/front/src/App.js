@@ -4,12 +4,12 @@ import AuthView from './scenes/AuthView';
 import './App.css';
 
 function App() {
-  const [isUser, setIsUser] = useState(true);
+  const [isUser, setIsUser] = useState(null);
 
   return (
     <div className="app">
       <header className="app-header">
-        {isUser ? <TaskList /> : <AuthView />}
+        {isUser ? <TaskList user={isUser}/> : <AuthView authUser={setIsUser}/>}
       </header>
     </div>
   );

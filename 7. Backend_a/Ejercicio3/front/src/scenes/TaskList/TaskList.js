@@ -5,7 +5,7 @@ import Button from '../../components/Button'
 import Task from '../../components/Task';
 import TextInput from '../../components/TextInput';
 
-function TaskList(props){
+function TaskList({user}){
     const[taskText, setTaskText] = useState("")
     const[tasks, setTasks] = useState([])
     const[loader, setLoader] = useState(false)
@@ -55,6 +55,7 @@ function TaskList(props){
 
     return(
         <div className='task_list'>
+            <h2 style={{color: 'white'}}>Bienvenido {user}</h2>
             <div className="task-input__container">
             <TextInput 
             value={taskText}
