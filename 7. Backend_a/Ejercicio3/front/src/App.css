@@ -28,7 +28,7 @@
 }
 
 .task-input__btn{
-  background-color: #FFE5D4;
+  background-color: #5f4dd8 !important;
   width: 100%;
   max-width: 500px;
   padding: 1rem;
@@ -36,10 +36,16 @@
   border: none;
   font-size: 1rem;
   font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+.task-input__btn:hover {
+  background-color: #74b9ff !important;
 }
 
 .task-input__btn:active{
-  background-color: #EFC7C2;
+  background-color: #30c42b !important;
 }
 
 .task-input__text{
@@ -58,10 +64,9 @@
   border-radius: 5px;
   margin-bottom: 0.5rem;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: nowrap;
   align-items: center;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  justify-content: space-between;
   text-align: left;
   cursor: pointer;
 }
@@ -70,9 +75,21 @@
   font-weight: bold;
   font-size: 1.5rem;
   margin-left: 1rem;
-  border-radius: 50%;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
 }
 
 .task__delete:hover {
   background-color: aqua;
 }
+
+.task__text { 
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.task__delete:active { 
+  background-color: #ff7675;
+} 

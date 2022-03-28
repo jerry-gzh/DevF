@@ -1,8 +1,9 @@
 import React, { useState, useEffect} from 'react';
 import { fetchTasks, createTask, deleteTask } from './api';
+import { Trash2 } from 'react-feather';
 import './App.css';
 
-
+import Button from './components/Button'
 
 function App() {
   const[taskText, setTaskText] = useState("")
@@ -77,19 +78,22 @@ function App() {
               onChange={(e) => setTaskText(e.target.value)}
             />
           </div>
-          <button 
-            onClick={addTask} 
+          <Button 
             className="task-input__btn"
-            >Ingresar Tarea
-          </button>
+            onClick={addTask}
+          >Ingresar tarea</Button>
         </div>
         {loader && (<p style={{color:'white'}}>Loading...</p>)}
         {tasks.map((task) => {
           return (
-            <div key={task._id} className="task">
+            <div className="task" key={task._id}>
+            <div className="task__text">
               <p>{task.text}</p>
-              <span onClick={() => onDeleteTask(task._id)} className='task__delete'>X</span>
             </div>
+            <div onClick={() => onDeleteTask(task._id)} className="task__delete">
+              <Trash2 />
+            </div>
+          </div>
           )
         }).reverse()}
       </header>
