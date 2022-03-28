@@ -1,0 +1,12 @@
+.text-input{
+    width: 100%;
+    max-width: 500px;
+    background: white;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+    padding: 1rem;
+}

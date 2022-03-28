@@ -1,9 +1,11 @@
 import React, { useState, useEffect} from 'react';
 import { fetchTasks, createTask, deleteTask } from './api';
-import { Trash2 } from 'react-feather';
+
 import './App.css';
 
 import Button from './components/Button'
+import Task from './components/Task';
+import TextInput from './components/TextInput';
 
 function App() {
   const[taskText, setTaskText] = useState("")
@@ -69,33 +71,27 @@ function App() {
     <div className="app">
       <header className="app-header">
         <div className="task-input__container">
-          <div className="task-input">
-            <input 
-              type="text" 
-              className="task-input__text"
-              value={taskText}
-              placeholder="Ingresa la tarea"
-              onChange={(e) => setTaskText(e.target.value)}
-            />
-          </div>
+          <TextInput 
+            value={taskText}
+            placeholder="Ingresa una tarea"
+            type="text"
+            onChange={(e) => setTaskText(e.target.value)} 
+          />
+          <TextInput 
+            value={taskText}
+            placeholder="Ingresa tu contraseña"
+            type="password"
+            onChange={(e) => setTaskText(e.target.value)} 
+          />
           <Button 
             className="task-input__btn"
             onClick={addTask}
           >Ingresar tarea</Button>
         </div>
         {loader && (<p style={{color:'white'}}>Loading...</p>)}
-        {tasks.map((task) => {
-          return (
-            <div className="task" key={task._id}>
-            <div className="task__text">
-              <p>{task.text}</p>
-            </div>
-            <div onClick={() => onDeleteTask(task._id)} className="task__delete">
-              <Trash2 />
-            </div>
-          </div>
-          )
-        }).reverse()}
+        {tasks.map((task) => (
+          <Task key={task._id} text={task.text} onDelete={() => onDeleteTask(task._id)} />
+        )).reverse()}
       </header>
     </div>
   );

@@ -12,15 +12,6 @@
   padding: 3rem 1rem 4rem 1rem;
 }
 
-.task-input{
-  width: 100%;
-  max-width: 500px;
-  background: white;
-  padding: 1rem;
-  border-radius: 10px;
-  margin-bottom: 0.5rem;
-}
-
 .task-input__container{
   margin-bottom: 3rem;
   width:100%;
@@ -47,49 +38,3 @@
 .task-input__btn:active{
   background-color: #30c42b !important;
 }
-
-.task-input__text{
-  border: none;
-  width: 100%;
-  max-width: 500px;
-  font-size: 1rem;
-  outline: none;
-}
-
-.task {
-  width: 100%;
-  max-width: 500px;
-  background: white;
-  font-size: 1rem;
-  border-radius: 5px;
-  margin-bottom: 0.5rem;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: space-between;
-  text-align: left;
-  cursor: pointer;
-}
-
-.task__delete {
-  font-weight: bold;
-  font-size: 1.5rem;
-  margin-left: 1rem;
-  width: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-}
-
-.task__delete:hover {
-  background-color: aqua;
-}
-
-.task__text { 
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.task__delete:active { 
-  background-color: #ff7675;
-} 
