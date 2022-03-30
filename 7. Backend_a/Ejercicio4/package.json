@@ -1,0 +1,21 @@
+{
+  "name": "scg",
+  "version": "1.0.0",
+  "description": "Sistema de control de gastos",
+  "main": "server.js", 
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js"
+  },
+  "author": "Gerardo Guzman",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.9"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
