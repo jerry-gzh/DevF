@@ -29,7 +29,22 @@ const postTransactions = asyncHandler( async(req, res) =>{
 
 
 const deleteTransactions = asyncHandler( async(req, res) =>{
-  res.status(200).json({message: `Eliminar transaccion ${req.params.id}`})
+
+  const transactions = await Transaction.findById(req.params.id)
+
+  if (!transactions) {
+      res.status(400)
+      throw new Error('Transacción no encontrada')
+  }
+
+ /*  if (tarea.user.toString() !== req.user.id){
+      res.status(401)
+      throw new Error ('Acceso no autorizado')
+  } */
+
+  await transactions.remove()
+
+  res.status(200).json({ id: req.params.id })
 })
 
 
