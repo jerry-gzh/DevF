@@ -1,6 +1,11 @@
 const mongoose = require ('mongoose')
 
 const transactionsSchema  = mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'User'
+  },
   concept: { // campo
     type: String, 
     required: [true, 'Ingresa un concepto']
