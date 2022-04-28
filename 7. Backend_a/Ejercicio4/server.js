@@ -13,8 +13,10 @@ app.use(express.urlencoded({extended:false})) //Middleware que habilita el uso d
 
 
 app.use('/api/transactions', require ('./routes/transactionsRoutes'))//Redireccionará a la ruta requerida
+app.use('/api/users', require('./routes/userRoutes'))
 
 app.use(errorHandler)//Como se sobreescribe un error que está en una ruta, deberá ir después de la ruta
+app.use('/api/users', require('./routes/userRoutes'))
 
 app.listen(port, () => console.log(`El servidor inició en el puerto ${port} 📡`))
 
