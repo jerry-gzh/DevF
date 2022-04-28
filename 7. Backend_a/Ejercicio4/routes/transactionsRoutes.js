@@ -2,8 +2,10 @@ const express = require('express')
 const router = express.Router()
 const {getTransactions, postTransactions, deleteTransactions} = require('../controllers/transactionsControllers')
 
-router.route('/').get(getTransactions).post(postTransactions) //simplificada 
+const {protect} = require('../middleware/authMiddleware')
 
-router.delete('/:id', deleteTransactions)//extendida
+router.route('/').get(protect, getTransactions).post(protect, postTransactions) //simplificada 
+
+router.route('/:id').delete(protect, deleteTransactions)//extendida
 
 module.exports = router

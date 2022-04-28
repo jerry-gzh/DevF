@@ -5,7 +5,7 @@ const Transaction = require('../models/transactionModel')
 
 const getTransactions = asyncHandler( async(req, res) =>{
 
-  const transactions = await Transaction.find()// dentro del find se pueden filtrar elementos
+  const transactions = await Transaction.find({user: req.user.id})// dentro del find se pueden filtrar elementos
 
   res.status(200).json(transactions)
 })
@@ -21,7 +21,8 @@ const postTransactions = asyncHandler( async(req, res) =>{
   }
   const transactions = await Transaction.create({
     concept: req.body.concept,
-    mount: req.body.mount
+    mount: req.body.mount,
+    user: req.user.id
   })
 
   res.status(200).json(transactions)
