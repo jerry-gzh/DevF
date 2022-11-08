@@ -3,6 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     align-self: center;
+    position: relative;
 }
 
 html {
@@ -62,10 +63,32 @@ html {
     column-count: 8;
     column-gap: 10rem;
     width: 99%;
-    
-  } 
+    position: relative;
+} 
 
 .logo img{
     height: 11rem;
     margin-left: 80rem;
+}
+
+
+.card-details {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    background-color: lightblue;
+    margin-top: 20px;
+}
+
+.cardDetail {
+    position: fixed;
+    z-index: 5;
+    /* margin: 0 auto; */
+    left: 30%;
+    width: 40%;
+    padding: 100px 0;
+    text-align: center;
+    background-color: grey;
+    margin-top: 200px;
+    border-radius: 7px;
 }
