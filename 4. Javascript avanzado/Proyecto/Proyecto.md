@@ -4,9 +4,13 @@ Puedes encontrar un sitio de ejemplo que hace algo similar acá: https://pokedex
 La página web debe:
 1. Mostrar una lista en tarjetas de, al menos, los primeros 151 pokemones. Las tarjetas deben mostrar: 
   - Nombre
-  - Tipo de cada Pokémon
-(tipo agua, tipo fuego, tipo venenoso, etc.)
-Permitir que, al hacer click sobre la tarjeta de un pokemon, se despliegue más información, como el peso, sus movimientos (ataques), etc.
+
+2. Permitir que, al hacer click sobre la tarjeta de un pokemon, se despliegue más información, como: 
+- Tipo (tipo agua, tipo fuego, tipo venenoso, etc.)
+- Movimientos (ataques), etc.
+- Altura
+- Peso
+
 De preferencia empleando un modal.
 El sitio web debe tener un buscador de pokemones, donde puedas filtrar pokemones por nombre.
 Cosas a tener en cuenta:

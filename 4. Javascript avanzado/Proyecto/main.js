@@ -16,7 +16,7 @@ async function obtenerPokemons()
             ))
             console.log(pokeColl); //Contiene todos los detalles en un arreglo de objetos de todas las cards a mostrar 🟢Traer datos de aqui 
             pokeColl.map(last=> mostrarDatos(last) )//Mapeo de los detalles. 
-            pokeCollGlo = pokeColl;
+            pokeCollGlo = pokeColl; // Asigna datos a colección global
             getId();//Se ejecuta asíncronicamente 🔴
         }else
         {
@@ -33,7 +33,6 @@ async function obtenerDatosPokemon(nombre){
         const axiosresult = await axios.get (`https://pokeapi.co/api/v2/pokemon/${nombre}`)            
         return axiosresult.data
         //mostrarDatos(axiosresult.data)               
-        
     } catch (error) {
         console.log(error)
     }
@@ -47,7 +46,7 @@ function mostrarDatos(datos){
     card.setAttribute("id", datos.id); //Agrega un id único a cada card
     
     let img = document.createElement("img");//Crea el img 
-    img.src = datos.sprites.front_default; //Asigna la fuente de la img
+    img.src = datos.sprites.front_default; 
     img.className = "card-img-top"; // Crea la clase de la img
     img.setAttribute("id", datos.id);
 
@@ -94,10 +93,36 @@ function displayCardDetails(){
     }
 }
 
-async function dataCardDetails(id){  // 🚧 Tomar en cuenta el flujo de los datos 🚧
+function dataCardDetails(id){  // 🚧 Tomar en cuenta el flujo de los datos 🚧
+    let selPoke = pokeCollGlo[id-1];
     cardDetail.innerText = `EL ID seleccionado es: ${id}` ;
-    console.log( pokeCollGlo[id-1]);
+    console.log(selPoke);
 
+    let cardName = document.createElement("h1");
+    //cardName.className = "cardTitle";// Probar
+    cardDetail.appendChild(cardName);
+    cardName.innerText = ((selPoke.name)[0].toUpperCase() +(selPoke.name).substring(1));
+    
+    let cardHeight = document.createElement("h2");
+    cardDetail.appendChild(cardHeight);
+    cardHeight.innerText = (`Altura: ${selPoke.height}`);
+
+    let cardWeight = document.createElement("h2");
+    cardDetail.appendChild(cardWeight);
+    cardWeight.innerText = (`Peso: ${selPoke.weight}`)
+
+    let cardType = document.createElement("h2");
+    cardDetail.appendChild(cardType);
+    cardType.innerText = (`Tipos: ${selPoke.types.map(item => {return item.type.name})}`)
+
+    let cardMovements = document.createElement("h2");
+    cardDetail.appendChild(cardMovements);
+    cardMovements.innerText = (`Movimientos: ${selPoke.abilities.map(item => {return item.ability.name})}`)
+
+    let img = document.createElement("img");//Crea el img 
+    cardDetail.appendChild(img);
+    img.src = selPoke.sprites.front_default; 
+    img.className = "card-img-top"; // Crea la clase de la img
 }
 
 //¿Asincronismo afecta? ✅
