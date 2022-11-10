@@ -103,9 +103,9 @@ function getId(){
     const buttonGroup = document.getElementById("container");//Contenedor padre
     const buttonGroupPressed = e => { 
         const isButton = e.target.className === 'card';//Clase destino
-        if(!isButton) {
+/*         if(!isButton) {
             return
-        }
+        } */
         console.log(`ID :  ${e.target.id}`)
     }
 buttonGroup.addEventListener("click", buttonGroupPressed);
