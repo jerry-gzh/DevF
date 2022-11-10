@@ -1,4 +1,6 @@
 // Función rango y extracción
+let pokeCollGlo = [];
+
 async function obtenerPokemons()
 {
     try{
@@ -6,14 +8,15 @@ async function obtenerPokemons()
         
         if(response.status === 200)
         {
-            const ultimo = await Promise.all(  //Promesa anidada
+            const pokeColl = await Promise.all(  //Promesa anidada
                 response.data.results.map(async (item) => { //Hace un mapeo de todos los elementos 
                     const responseFinal = await obtenerDatosPokemon(item.name)//Trae a un elemento por individual y lo almacena            
                     return (responseFinal)
                 }
             ))
-            console.log(ultimo); //Contiene todos los detalles en un arreglo de objetos de todas las cards a mostrar 
-            ultimo.map(last=> mostrarDatos(last) )//Mapeo de los detalles. 
+            console.log(pokeColl); //Contiene todos los detalles en un arreglo de objetos de todas las cards a mostrar 🟢Traer datos de aqui 
+            pokeColl.map(last=> mostrarDatos(last) )//Mapeo de los detalles. 
+            pokeCollGlo = pokeColl;
             getId();//Se ejecuta asíncronicamente 🔴
         }else
         {
@@ -70,10 +73,6 @@ function mostrarDatos(datos){
     body.appendChild(card);// Assigna la tarjeta al body 
 }
 
-function prin(selected){
-    console.log(`Aqui estoy ${selected}`)
-}
-
 obtenerPokemons()
 
 function createCardDetail(){
@@ -95,8 +94,10 @@ function displayCardDetails(){
     }
 }
 
-function dataCardDetails(id){  // 🚧 Tomar en cuenta el flujo de los datos 
+async function dataCardDetails(id){  // 🚧 Tomar en cuenta el flujo de los datos 🚧
     cardDetail.innerText = `EL ID seleccionado es: ${id}` ;
+    console.log( pokeCollGlo[id-1]);
+
 }
 
 //¿Asincronismo afecta? ✅
