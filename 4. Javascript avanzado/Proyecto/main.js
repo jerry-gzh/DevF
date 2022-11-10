@@ -79,7 +79,6 @@ obtenerPokemons()
 function createCardDetail(){
     let cardDetail = document.createElement("div");
     cardDetail.className = ("cardDetail");
-    cardDetail.innerText = `This is my DIV element new poke:`;
     cardDetail.style.display = "none";
     cardDetail.id = ("cardDetail");
     body.appendChild(cardDetail);
@@ -94,10 +93,12 @@ function displayCardDetails(){
     } else {
         x.style.display = "none";
     }
-    //console.log(elem)
 }
 
-//¿Como obtener el id de un elemento al hacer click? 👁️👁️ 
+function dataCardDetails(id){  // 🚧 Tomar en cuenta el flujo de los datos 
+    cardDetail.innerText = `EL ID seleccionado es: ${id}` ;
+}
+
 //¿Asincronismo afecta? ✅
 function getId(){
     const buttonGroup = document.getElementById("container");//Contenedor padre
@@ -106,7 +107,8 @@ function getId(){
 /*         if(!isButton) {
             return
         } */
-        console.log(`ID :  ${e.target.id}`)
+        let selectedId = e.target.id;
+        dataCardDetails(selectedId);
     }
 buttonGroup.addEventListener("click", buttonGroupPressed);
 }
