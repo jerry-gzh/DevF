@@ -18,6 +18,8 @@ Repo en Github (Github pages es un plus)
 
 
 Pendientes: 
-1. Arreglar el logo de Pokemon a responsive. 
+- Pasar la tarjeta a JS 
+- Arreglar el logo de Pokemon a responsive. 
 
 
+Ok 

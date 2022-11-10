@@ -14,6 +14,7 @@ async function obtenerPokemons()
             ))
             console.log(ultimo); //Contiene todos los detalles en un arreglo de objetos de todas las cards a mostrar 
             ultimo.map(last=> mostrarDatos(last) )//Mapeo de los detalles. 
+            getId();//Se ejecuta asíncronicamente 🔴
         }else
         {
             alert("NO SE OBTUVO INFORMACION");
@@ -29,30 +30,28 @@ async function obtenerDatosPokemon(nombre){
         const axiosresult = await axios.get (`https://pokeapi.co/api/v2/pokemon/${nombre}`)            
         return axiosresult.data
         //mostrarDatos(axiosresult.data)               
-            
+        
     } catch (error) {
         console.log(error)
     }
 }
 
 function mostrarDatos(datos){
-    //console.log(datos);
-
     let body = document.getElementById("container");//Body como destino dentro HTML
     let card = document.createElement("div");//Crea un nuevo div
     card.className = ("card"); //Crea la clase card
-    //let sel = datos.id;
     card.addEventListener("click", displayCardDetails);//Hace la tarjeta clickeable
-    //card.addEventListener("click", prin(datos.id))
-    card.setAttribute("id", datos.id) //Agrega un id único a cada card
+    card.setAttribute("id", datos.id); //Agrega un id único a cada card
     
-    //card.addEventListener("dblclick", prin(sel));// ¿Por que se ejecuta sin escuchar el evento ❓
     let img = document.createElement("img");//Crea el img 
     img.src = datos.sprites.front_default; //Asigna la fuente de la img
     img.className = "card-img-top"; // Crea la clase de la img
+    img.setAttribute("id", datos.id);
 
     let cardBody = document.createElement("div");
     cardBody.className = "card-body";
+    cardBody.setAttribute("id", datos.id);
+
     let cardTitle = document.createElement("h5");
     cardTitle.className = "card-title";
     cardTitle.innerText = ((datos.name)[0].toUpperCase() +(datos.name).substring(1));
@@ -98,45 +97,16 @@ function displayCardDetails(){
     //console.log(elem)
 }
 
-/* body.childNodes.forEach(.card => {
-    card.addEventListener('click', (e) =>{
-        console.log(e);
-    });
-}); */
-
-
-/*  
-    document.querySelectorAll(".card").forEach(el => {
-        el.addEventListener("click", e => {
-            const id = e.target.getAttribute("id");
-            console.log("Se ha clickeado el id "+id);
-        });
-    }); 
-*/
-
-
-
 //¿Como obtener el id de un elemento al hacer click? 👁️👁️ 
-//¿Asincronismo afecta? 
+//¿Asincronismo afecta? ✅
 function getId(){
-
-    setTimeout( ()=> {
-    // let bory = document.getElementById("container");
-    // console.log(bory);
-    // let numb = document.querySelectorAll(".card").length;
-    // console.log("Longitud " + numb)
-
-    document.querySelectorAll(".card").forEach(el => {
-        el.addEventListener("click", e => {
-            const id = e.target.getAttribute("id");
-            console.log("Se ha clickeado el id "+id);
-        });
-    }); 
-
-    }, 2000)
+    const buttonGroup = document.getElementById("container");//Contenedor padre
+    const buttonGroupPressed = e => { 
+        const isButton = e.target.className === 'card';//Clase destino
+        if(!isButton) {
+            return
+        }
+        console.log(`ID :  ${e.target.id}`)
+    }
+buttonGroup.addEventListener("click", buttonGroupPressed);
 }
-
-getId();
-
-
-
