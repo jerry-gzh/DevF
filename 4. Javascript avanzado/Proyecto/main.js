@@ -95,34 +95,41 @@ function displayCardDetails(){
 
 function dataCardDetails(id){  // 🚧 Tomar en cuenta el flujo de los datos 🚧
     let selPoke = pokeCollGlo[id-1];
-    cardDetail.innerText = `EL ID seleccionado es: ${id}` ;
-    console.log(selPoke);
+    cardDetail.innerText = " ";
+
+    let leftCardDetail = document.createElement("div");
+    leftCardDetail.className = ("leftCardDetail");
+    cardDetail.appendChild(leftCardDetail);
+
+    let rigthCardDetail = document.createElement("div");
+    rigthCardDetail.className = ("rigthCardDetail");
+    cardDetail.appendChild(rigthCardDetail);
 
     let cardName = document.createElement("h1");
     //cardName.className = "cardTitle";// Probar
-    cardDetail.appendChild(cardName);
+    rigthCardDetail.appendChild(cardName);
     cardName.innerText = ((selPoke.name)[0].toUpperCase() +(selPoke.name).substring(1));
     
     let cardHeight = document.createElement("h2");
-    cardDetail.appendChild(cardHeight);
+    rigthCardDetail.appendChild(cardHeight);
     cardHeight.innerText = (`Altura: ${selPoke.height}`);
 
     let cardWeight = document.createElement("h2");
-    cardDetail.appendChild(cardWeight);
+    rigthCardDetail.appendChild(cardWeight);
     cardWeight.innerText = (`Peso: ${selPoke.weight}`)
 
     let cardType = document.createElement("h2");
-    cardDetail.appendChild(cardType);
+    rigthCardDetail.appendChild(cardType);
     cardType.innerText = (`Tipos: ${selPoke.types.map(item => {return item.type.name})}`)
 
     let cardMovements = document.createElement("h2");
-    cardDetail.appendChild(cardMovements);
+    rigthCardDetail.appendChild(cardMovements);
     cardMovements.innerText = (`Movimientos: ${selPoke.abilities.map(item => {return item.ability.name})}`)
 
     let img = document.createElement("img");//Crea el img 
-    cardDetail.appendChild(img);
+    leftCardDetail.appendChild(img);
     img.src = selPoke.sprites.front_default; 
-    img.className = "card-img-top"; // Crea la clase de la img
+    img.className = "card-img-detail"; // Crea la clase de la img
 }
 
 //¿Asincronismo afecta? ✅

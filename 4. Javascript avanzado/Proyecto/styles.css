@@ -11,7 +11,7 @@ html {
 }
 
 .card-img-top{
-    width:12rem !important;
+    width:10rem !important;
     max-height: 15rem;
 }
 
@@ -84,11 +84,30 @@ html {
     position: fixed;
     z-index: 5;
     /* margin: 0 auto; */
-    left: 30%;
+    left: 30%
+    ;
     width: 40%;
     padding: 100px 0;
     text-align: center;
     background-color: grey;
     margin-top: 200px;
     border-radius: 7px;
+}
+
+.leftCardDetail{
+    float: left;
+    background-color: violet;
+    text-align: center;
+    width: 50%;
+}
+
+.rigthCardDetail{
+    float: right;
+    background-color: greenyellow;
+    text-align: center;
+    width: 50%;
+}
+
+.card-img-detail{
+    width:18rem !important;
 }
