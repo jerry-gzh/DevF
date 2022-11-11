@@ -81,6 +81,7 @@ html {
 }
 
 .cardDetail {
+    display: none;
     position: fixed;
     z-index: 5;
     /* margin: 0 auto; */

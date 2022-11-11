@@ -74,15 +74,14 @@ function mostrarDatos(datos){
 
 obtenerPokemons()
 
-function createCardDetail(){
+/* function createCardDetail(){
     let cardDetail = document.createElement("div");
     cardDetail.className = ("cardDetail");
     cardDetail.style.display = "none";
     cardDetail.id = ("cardDetail");
     body.appendChild(cardDetail);
 }
-
-createCardDetail()
+createCardDetail() */
 
 function displayCardDetails(){
     var x = document.getElementById("cardDetail");
@@ -97,6 +96,11 @@ function dataCardDetails(id){  // ðŸš§ Tomar en cuenta el flujo de los datos ðŸš
     let selPoke = pokeCollGlo[id-1];
     cardDetail.innerText = " ";
 
+    let cardName = document.createElement("h1");
+    //cardName.className = "cardTitle";// Probar
+    cardDetail.appendChild(cardName);
+    cardName.innerText = ((selPoke.name)[0].toUpperCase() +(selPoke.name).substring(1));
+
     let leftCardDetail = document.createElement("div");
     leftCardDetail.className = ("leftCardDetail");
     cardDetail.appendChild(leftCardDetail);
@@ -105,11 +109,6 @@ function dataCardDetails(id){  // ðŸš§ Tomar en cuenta el flujo de los datos ðŸš
     rigthCardDetail.className = ("rigthCardDetail");
     cardDetail.appendChild(rigthCardDetail);
 
-    let cardName = document.createElement("h1");
-    //cardName.className = "cardTitle";// Probar
-    rigthCardDetail.appendChild(cardName);
-    cardName.innerText = ((selPoke.name)[0].toUpperCase() +(selPoke.name).substring(1));
-    
     let cardHeight = document.createElement("h2");
     rigthCardDetail.appendChild(cardHeight);
     cardHeight.innerText = (`Altura: ${selPoke.height}`);
