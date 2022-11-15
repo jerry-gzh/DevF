@@ -67,8 +67,11 @@ html {
 } 
 
 .logo img{
-    height: 11rem;
-    margin-left: 80rem;
+    /* height: 11rem;
+    margin-left: 80rem; */
+    left: 37.5%;
+    width: 25%;
+    background: transparent;
 }
 
 
