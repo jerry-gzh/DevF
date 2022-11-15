@@ -16,16 +16,15 @@ html {
 }
 
 .card {
-    width: 13rem;
-    height: 22rem;
+    width: 14.25rem;
+    height: 20rem;
     border-radius: 1rem;
     margin-bottom: 5rem;
     background-color: #82b8ff42 !important;
 }
 
 .card:hover{
-    background-color: coral;
-    color: cornflowerblue;
+    border: 3px solid #306ab690;
     }
 
 .card-title{
@@ -34,7 +33,10 @@ html {
 }
 
 .card-text{
+    font-size: 2.7rem;
     color: rgba(217, 255, 0, 0.733);
+    margin: auto;
+    text-align: center;
 }
 
 .card.img{
@@ -48,32 +50,28 @@ html {
     font-family: 'Rampart One', cursive;
     }
 
-
-
 .body{
     background-image: url(https://cdn.pixabay.com/photo/2016/08/27/11/59/pokemon-1624022_960_720.jpg);
     background-size:contain;
 }
 
 .container {
-    margin-top: 7rem;
+    margin-top: 3rem;
     margin-bottom: 10rem;
-    flex-wrap: wrap ;
+    flex-wrap: wrap;
     display: flex;
-    column-count: 8;
-    column-gap: 10rem;
-    width: 99%;
+    column-count: 6;
+    column-gap: 7rem;
+    width: 99.5%;
     position: relative;
+    left: 4.1%;
 } 
 
 .logo img{
-    /* height: 11rem;
-    margin-left: 80rem; */
     left: 37.5%;
     width: 25%;
     background: transparent;
 }
-
 
 .card-details {
     width: 100%;
@@ -83,44 +81,7 @@ html {
     margin-top: 20px;
 }
 
-/* .cardDetail {
-    display: none;
-    position: fixed;
-    z-index: 5;
-    
-    left: 30%;
-    width: 40%;
-    padding: 100px 0;
-    text-align: center;
-    background-color: grey;
-    margin-top: 200px;
-    border-radius: 7px;
-} */
-
-.leftCardDetail{
-    float: left;
-    background-color: violet;
-    text-align: center;
-    width: 50%;
-}
-
-.rigthCardDetail{
-    float: right;
-    background-color: greenyellow;
-    text-align: center;
-    width: 50%;
-}
-
-.card-img-detail{
-    width:18rem !important;
-}
-
-
-
-
-
 /* Insercion  */
-
 
 form {
     width: 200px;

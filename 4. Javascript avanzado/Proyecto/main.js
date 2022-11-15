@@ -3,7 +3,7 @@ let pokeCollGlo = [];
 async function obtenerPokemons()
 {
     try{
-        const response =  await axios.get("https://pokeapi.co/api/v2/pokemon?limit=54&offset=0"); //Limit: cards a mostrar 
+        const response =  await axios.get("https://pokeapi.co/api/v2/pokemon?limit=150&offset=0"); //Limit: cards a mostrar 
         
         if(response.status === 200)
         {
@@ -58,16 +58,16 @@ function mostrarDatos(datos){
     cardTitle.innerText = ((datos.name)[0].toUpperCase() +(datos.name).substring(1));
     let cardText = document.createElement("p");
     cardText.className = "card-text";
-    cardText.innerText = `# ${datos.id}`;// Elemento extraible 
-    let cardType = document.createElement("h4");
+    cardText.innerText = `${datos.id}`;// Elemento extraible 
+/*     let cardType = document.createElement("h4");
     cardType.className = "card-type";
-    cardType.innerText = `Tipo ${datos.types.map(item => {return item.type.name})}`;
+    cardType.innerText = `Tipo ${datos.types.map(item => {return item.type.name})}`; */
 
     card.appendChild(img);// Asigna la imagen a la tarjeta
     card.append(cardBody);
     cardBody.appendChild(cardTitle);
     cardBody.appendChild(cardText);
-    cardBody.appendChild(cardType);
+    // cardBody.appendChild(cardType);
     body.appendChild(card);// Assigna la tarjeta al body 
 }
 
