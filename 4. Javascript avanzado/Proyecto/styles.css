@@ -85,8 +85,7 @@ html {
     position: fixed;
     z-index: 5;
     
-    left: 30%
-    ;
+    left: 30%;
     width: 40%;
     padding: 100px 0;
     text-align: center;
@@ -136,26 +135,30 @@ input {
     z-index: 5;
     height: fit-content;
     font-family: 'Roboto Mono', monospace;
-    max-width: 300px;
+
+    font-size: 2rem;
+    left: 35%;
+    width: 30%;
+
     border-radius: 4px;
-    color: #000;
+    color: white; /* Hacer dinamico */
     text-align: center;
     padding: 10px;
     margin: 0 auto;
-    background-color: #FFF;
-    border: 1px solid black;
+    background-color: black;
+    border: 5px solid #306ab690;
 }
 
 .poke-card::before {
     content: '';
-    background: radial-gradient(black 33%, transparent 33%);
+    background: radial-gradient(rgba(53, 52, 52, 0.582) 33%, transparent 33%);
     background-size: 3px 3px;
     border-radius: 4px;
     height: 100%;
     width: 100%;
     position: absolute;
-    left: 10px;
-    top: 10px;
+    left: 5px;
+    top: 5px;
     z-index: -1;
 }
 
@@ -177,10 +180,14 @@ input {
     padding: 5px;
     margin: 5px;
     border-radius: 4px;
-    border: 1px dashed black;
+    border: 1px dashed #82b8ff42;
 }
 
 .poke-img {
     width: 180px;
     border-radius: 50%;
+}
+
+.data-poke-name{
+    font-size: large;
 }
