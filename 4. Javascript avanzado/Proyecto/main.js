@@ -181,14 +181,15 @@ const typeColors = {
 };
 
 
-/* const searchPokemon = event => {
+const searchPokemon = event => {
+    displayCardDetails();
     event.preventDefault();
     const { value } = event.target.pokemon;
-    fetch(`https://pokeapi.co/api/v2/pokemon/${value.toLowerCase()}`)cardDetail
+    fetch(`https://pokeapi.co/api/v2/pokemon/${value.toLowerCase()}`)
         .then(data => data.json())
         .then(response => renderPokemonData(response))
         .catch(err => renderNotFound())
-} */
+}
 
 function selectDataId(id) {
     let selPoke = pokeCollGlo[id-1];
