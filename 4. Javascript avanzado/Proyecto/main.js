@@ -150,7 +150,7 @@ const renderPokemonData = data => {
 
     pokeName.textContent = (data.name)[0].toUpperCase() +(data.name).substring(1);
     pokeImg.setAttribute('src', sprite);
-    pokeId.textContent = `Nº ${data.id}`;
+    pokeId.textContent = `# ${data.id}`;
     setCardColor(types);
     renderPokemonTypes(types);
     renderPokemonStats(stats);

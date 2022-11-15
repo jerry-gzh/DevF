@@ -23,14 +23,10 @@
 data-poke-card
   <body class="body" id="body">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
     <form action="" onsubmit="searchPokemon(event)">
       <input type="text" name="pokemon" autocomplete="off" placeholder="Busca por nombre">
   </form>
-
-
     <header>
-
       <ul class="header" id="header">
         <li>
           <a class="logo" id="logo "href="#"
@@ -41,17 +37,20 @@ data-poke-card
         </li>
       </ul>
     </header>
-    
     <div data-poke-card class="poke-card" id="poke-card">
-      <div data-poke-name>Pokedex</div>
-      <div data-poke-img-container class="img-container">
+      <div data-poke-name class="data-poke-name">Pokedex</div>
+      <div data-poke-left class="data-poke-left">
+        <div data-poke-img-container class="img-container">
           <img data-poke-img class="poke-img" src="./poke-shadow.png"/>
+        </div>
+        <div data-poke-types class="poke-types"></div>
       </div>
-      <div data-poke-id></div>
-      <div data-poke-types class="poke-types"></div>
-      <div data-poke-stats class="poke-stats"></div>
-  </div>
-
+      <div data-poke-right class="data-poke-right">
+        <div data-poke-id class="data-poke-id"></div>
+        <div data-poke-stats class="poke-stats">
+      </div>
+      </div>
+    </div>
   </body>
     <div class="container" id="container" ></div>
 </html>
