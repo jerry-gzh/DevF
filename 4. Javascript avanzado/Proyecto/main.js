@@ -195,3 +195,12 @@ const renderNotFound = () => {
     pokeStats.innerHTML = '';
     pokeId.textContent = '';
 }
+
+function displaySearch(){
+    var x = document.getElementById("search-input");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
