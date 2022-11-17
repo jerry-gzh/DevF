@@ -62,9 +62,12 @@ html {
     display: flex;
     column-count: 6;
     column-gap: 7rem;
-    width: 99.5%;
+    width: 80%;
     position: relative;
-    left: 4.1%;
+    /* left: 4.1%; */
+    align-items: center;
+    justify-content: center;
+    margin: 0.5px 0.5px;
 } 
 
 .logo img{
@@ -106,22 +109,22 @@ input {
     left: 30%;
     width: 40%;
 
-    border-radius: 4px;
+    border-radius: 2rem;
     color: white; /* Hacer dinamico */
     text-align: center;
-    padding: 10px;
+    padding: 1rem;
     margin: 0 auto;
     background-color: black;
-    border: 5px solid #306ab690;
+    border: 0.5rem solid #306ab690;
 }
 
 .data-poke-name{
-    font-size: 4rem !important;
+    font-size: 4vw; /* Letra responsiva */
     font-family: 'Rampart One', cursive;
 }
 
 .data-poke-id{
-    font-size: 3rem !important;
+    font-size: 3vw !important;
     color: rgba(217, 255, 0, 0.733);
     font-family: 'Rampart One', cursive;
 }
@@ -139,35 +142,38 @@ input {
     z-index: -1;
 }
 
-.img-container {
-    position: relative;
-    width: 180px;
-    margin: 10px auto;
-}
-
 .poke-stats div {
     display: flex;
     justify-content: space-between;
     align-content: space-between;
-    padding: 5px;
-    font-size: 18px;
+    padding: 0.3rem;
+    font-size: 1.5vw;
+    text-align: left;
 }
 
 .poke-types div {
-    padding: 5px;
-    margin: 5px;
+    padding: 0.3rem;
+    margin: 1rem;
     border-radius: 4px;
     border: 1px dashed #82b8ff42;
+    font-size: 2vw;
+}
+
+.img-container {
+    position: relative;
+    width: 18rem;
+    margin: 1rem auto;
+    display: flex;
 }
 
 .poke-img {
-    width: 180px;
+    justify-content: center;
+    width: 12vw;
     border-radius: 50%;
     margin-bottom: 2rem;
-}
-
-.data-poke-name{
-    font-size: large;
+    margin: 1.6rem;
+    /* align-items: center;
+    justify-content: center; */
 }
 
 .data-poke-left{
@@ -184,12 +190,12 @@ input {
     width: 8rem;
     position: fixed;
     bottom: 10rem;
-    right: 3rem;
+    right: 2.5vw;
 }
 
 .pokeball:hover{
-    background-color: rgba(251, 5, 5, 0.341);
-    border-radius: 40px;
+    background-color: rgba(251, 5, 5, 0.342);
+    border-radius: 50%;
     padding: 10px 2.5px;
 }
 
