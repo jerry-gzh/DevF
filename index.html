@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="main.js" type="text/javascript" defer></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="./favicon.svg">
+  </head>
+data-poke-card
+  <body class="body" id="body">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <header>
+      <ul class="header" id="header">
+        <li>
+          <a class="logo" id="logo "href="#"
+            ><img
+              src="./Pokemon_logo.png"
+              alt="Pokemon"
+          /></a>
+        </li>
+      </ul>
+    </header>
+    <div data-poke-card class="poke-card" id="poke-card">
+      <div data-poke-name class="data-poke-name">Pokedex</div>
+      <div data-poke-left class="data-poke-left">
+        <div data-poke-img-container class="img-container">
+          <img data-poke-img class="poke-img" src="./poke-shadow.png"/>
+        </div>
+        <div data-poke-types class="poke-types"></div>
+      </div>
+      <div data-poke-right class="data-poke-right">
+        <div data-poke-id class="data-poke-id"></div>
+        <div data-poke-stats class="poke-stats">
+      </div>
+      </div>
+    </div>
+    <form action="" onsubmit="searchPokemon(event)">
+      <input type="text" name="pokemon" autocomplete="off" placeholder="Busca por nombre"
+      id="search-input" class="search-input">
+    </form>
+    <div>
+      <img pokeball class="pokeball" src="./pokeball.png" action="" onclick="displaySearch()"/>
+    </div>
+  </body>
+    <div class="container" id="container" ></div>
+</html>

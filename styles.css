@@ -1,0 +1,203 @@
+* { /*Setear margenes generales para adaptar a cualquier navegador*/
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    align-self: center;
+    position: relative;
+}
+
+html {
+    font-size: 62.5%; /*Equivalencia para rem a 10px*/
+}
+
+.card-img-top{
+    width:10rem !important;
+    max-height: 15rem;
+}
+
+.card {
+    width: 14.25rem;
+    height: 20rem;
+    border-radius: 1rem;
+    margin-bottom: 5rem;
+    background-color: #82b8ff42 !important;
+}
+
+.card:hover{
+    border: 3px solid #306ab690;
+    }
+
+.card-title{
+    font-size: 2rem;
+    color: rgb(235, 235, 235);
+}
+
+.card-text{
+    font-size: 2.7rem;
+    color: rgba(217, 255, 0, 0.733);
+    margin: auto;
+    text-align: center;
+}
+
+.card.img{
+    max-height: 1rem;
+}
+
+.card-body{
+    font-size: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Rampart One', cursive;
+    }
+
+.body{
+    background-image: url(https://cdn.pixabay.com/photo/2016/08/27/11/59/pokemon-1624022_960_720.jpg);
+    background-size:contain;
+}
+
+.container {
+    margin-top: 3rem;
+    margin-bottom: 10rem;
+    flex-wrap: wrap;
+    display: flex;
+    column-count: 6;
+    column-gap: 7rem;
+    width: 99.5%;
+    position: relative;
+    left: 4.1%;
+} 
+
+.logo img{
+    top: 25px;
+    left: 37.5%;
+    width: 25%;
+    background: transparent;
+}
+
+.card-details {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    background-color: lightblue;
+    margin-top: 20px;
+}
+
+/* Insercion  */
+
+form {
+    width: 200px;
+    margin: 20px auto;
+}
+
+input {
+    width: 100%;
+    padding: 5px;
+    
+}
+
+.poke-card {
+    display: none;
+    position: fixed;
+    z-index: 5;
+    height: fit-content;
+    font-family: 'Roboto Mono', monospace;
+
+    font-size: 2rem;
+    left: 30%;
+    width: 40%;
+
+    border-radius: 4px;
+    color: white; /* Hacer dinamico */
+    text-align: center;
+    padding: 10px;
+    margin: 0 auto;
+    background-color: black;
+    border: 5px solid #306ab690;
+}
+
+.data-poke-name{
+    font-size: 4rem !important;
+    font-family: 'Rampart One', cursive;
+}
+
+.data-poke-id{
+    font-size: 3rem !important;
+    color: rgba(217, 255, 0, 0.733);
+    font-family: 'Rampart One', cursive;
+}
+
+.poke-card::before {
+    content: '';
+    background: radial-gradient(rgba(53, 52, 52, 0.582) 33%, transparent 33%);
+    background-size: 3px 3px;
+    border-radius: 4px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    z-index: -1;
+}
+
+.img-container {
+    position: relative;
+    width: 180px;
+    margin: 10px auto;
+}
+
+.poke-stats div {
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    padding: 5px;
+    font-size: 18px;
+}
+
+.poke-types div {
+    padding: 5px;
+    margin: 5px;
+    border-radius: 4px;
+    border: 1px dashed #82b8ff42;
+}
+
+.poke-img {
+    width: 180px;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+}
+
+.data-poke-name{
+    font-size: large;
+}
+
+.data-poke-left{
+    width: 47%;
+    float: left;
+}
+
+.data-poke-right{
+    width: 47%;
+    float: right;
+}
+
+.pokeball{
+    width: 8rem;
+    position: fixed;
+    bottom: 10rem;
+    right: 3rem;
+}
+
+.pokeball:hover{
+    background-color: rgba(251, 5, 5, 0.341);
+    border-radius: 40px;
+    padding: 10px 2.5px;
+}
+
+.search-input{
+    width: 15rem;
+    position: fixed;
+    bottom: 18rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    font-family: 'Roboto Mono', monospace;
+}
