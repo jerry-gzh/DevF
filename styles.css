@@ -146,12 +146,13 @@ input {
     display: flex;
     justify-content: space-between;
     align-content: space-between;
-    padding: 5px;
+    padding: 0.3rem;
     font-size: 1.5vw;
+    text-align: left;
 }
 
 .poke-types div {
-    padding: 0.7rem;
+    padding: 0.3rem;
     margin: 1rem;
     border-radius: 4px;
     border: 1px dashed #82b8ff42;
@@ -189,12 +190,12 @@ input {
     width: 8rem;
     position: fixed;
     bottom: 10rem;
-    right: 3rem;
+    right: 2.5vw;
 }
 
 .pokeball:hover{
-    background-color: rgba(251, 5, 5, 0.341);
-    border-radius: 40px;
+    background-color: rgba(251, 5, 5, 0.342);
+    border-radius: 50%;
     padding: 10px 2.5px;
 }
 
